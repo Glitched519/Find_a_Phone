@@ -1,17 +1,17 @@
 import g4p_controls.*;
-int osChosen = 1;
-int headphoneJack = 0;
+String osChosen = "iOS";
+String headphoneJack = "no";
 String displayDesign = "bezel";
 String screenPanel = "LCD";
 int screenSize = 1;
 int cameras = 1;
-int performance = 1;
+String performance = "powerful";
 int batterySize = 1;
-int dualSim = 0;
-int fluidDisplay = 0;
+String dualSim = "no";
+String fluidDisplay = "no";
 int screenResolution = 1;
 int minimumStorage = 256;
-int waterResistance = 0;
+String waterResistance = "no";
 PrintWriter formInput;
 boolean sameLines = false;
 String[] specs, form, phoneNames;
@@ -53,19 +53,19 @@ void draw() {
 
 
 void resetPrefs() {
-  osChosen = 1;
-  headphoneJack = 0;
+  osChosen = "iOS";
+  headphoneJack = "no";
   displayDesign = "bezel";
   screenPanel = "LCD";
   screenSize = 1;
   cameras = 1;
-  performance = 1;
+  performance = "powerful";
   batterySize = 1;
-  dualSim = 0;
-  fluidDisplay = 0;
+  dualSim = "no";
+  fluidDisplay = "no";
   screenResolution = 1;
   minimumStorage = 256;
-  waterResistance = 0;
+  waterResistance = "no";
 }
 
 void resetChoices() {
@@ -75,7 +75,7 @@ void resetChoices() {
   LCDChoice.setSelected(true);
   size1.setSelected(true);
   cameraSlider.setValue(1);
-  flagship.setSelected(true);
+  powerful.setSelected(true);
   huge.setSelected(true);
   wantDualSim.setSelected(false);
   wantFluid.setSelected(false);
@@ -84,5 +84,4 @@ void resetChoices() {
   tickForWaterResistance.setSelected(false);
   redraw();
   resetPrefs(); 
-  resultLabel.setText("Your Phone choice is...");
 }

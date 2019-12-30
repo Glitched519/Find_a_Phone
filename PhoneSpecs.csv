@@ -1,3 +1,3 @@
 os,headphone jack,display design,screen panel,screen size,cameras,performance,battery size,dual sim,fluid display,screen resolution,mimimum storage,water resistance
-2,1,hole,OLED,3,2,1,2,0,0,1,128,1
-1,0,notch,OLED,2,2,1,2,0,0,2,64,1
+Android,yes,hole,OLED,3,3,powerful,2,no,no,1,128,yes
+iOS,no,notch,OLED,2,3,powerful,2,no,no,2,64,yes

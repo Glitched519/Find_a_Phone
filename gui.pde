@@ -15,15 +15,16 @@
  */
 
 public void iOSSelected(GOption source, GEvent event) { //_CODE_:iOS:339460:
-  osChosen = 1;
+  osChosen = "iOS";
 } //_CODE_:iOS:339460:
 
 public void eitherOSSelected(GOption source, GEvent event) { //_CODE_:eitherOS:695765:
-  osChosen = round(random(1, 2));
+  String[] osArray = {"iOS","Android"};
+  osChosen = osArray[round(random(0,1))];
 } //_CODE_:eitherOS:695765:
 
 public void AndroidSelected(GOption source, GEvent event) { //_CODE_:Android:944640:
-  osChosen = 2;
+  osChosen = "Android";
 } 
 
 
@@ -31,9 +32,9 @@ public void AndroidSelected(GOption source, GEvent event) { //_CODE_:Android:944
 
 public void wantJackTicked(GCheckbox source, GEvent event) { //_CODE_:wantJack:778785:
   if (source.isSelected()) {
-    headphoneJack = 1;
+    headphoneJack = "yes";
   } else {
-    headphoneJack = 0;
+    headphoneJack = "no";
   }
 } //_CODE_:wantJack:778785:
 
@@ -99,20 +100,21 @@ public void cameraSliderSlid(GSlider source, GEvent event) { //_CODE_:cameraSlid
 } //_CODE_:cameraSlider:348224:
 
 public void anyPerformanceChosen(GOption source, GEvent event) { //_CODE_:anyPerformance:333481:
-  performance = round(random(1, 3));
+  String[] performanceArray = {"powerful","midrange","budget"};
+  performance = performanceArray[round(random(0, 2))];
 } //_CODE_:anyPerformance:333481:
 
 public void budgetChosen(GOption source, GEvent event) { //_CODE_:budget:421045:
-  performance = 3;
+  performance = "budget";
 } //_CODE_:budget:421045:
 
 public void midrangeChosen(GOption source, GEvent event) { //_CODE_:midrange:302861:
-  performance = 2;
+  performance = "midrange";
 } //_CODE_:midrange:302861:
 
-public void flagshipChosen(GOption source, GEvent event) { //_CODE_:flagship:737175:
-  performance = 1;
-} //_CODE_:flagship:737175:
+public void powerfulChosen(GOption source, GEvent event) { //_CODE_:powerful:737175:
+  performance = "powerful";
+} //_CODE_:powerful:737175:
 
 public void anySizeChosen(GOption source, GEvent event) { //_CODE_:anySize:538168:
   batterySize = round(random(1, 3));
@@ -132,17 +134,17 @@ public void hugeChosen(GOption source, GEvent event) { //_CODE_:huge:234490:
 
 public void wantDualSimTicked(GCheckbox source, GEvent event) { //_CODE_:wantDualSim:526849:
   if (source.isSelected()) {
-    dualSim = 1;
+    dualSim = "yes";
   } else {
-    dualSim = 0;
+    dualSim = "no";
   }
 } //_CODE_:wantDualSim:526849:
 
 public void wantFluidTicked(GCheckbox source, GEvent event) { //_CODE_:wantFluid:571497:
   if (source.isSelected()) {
-    fluidDisplay = 1;
+    fluidDisplay = "yes";
   } else {
-    fluidDisplay = 0;
+    fluidDisplay = "no";
   }
 } //_CODE_:wantFluid:571497:
 
@@ -176,16 +178,17 @@ public void GB64Chosen(GOption source, GEvent event) { //_CODE_:GB64:285405:
 
 public void waterResistanceTicked(GCheckbox source, GEvent event) { //_CODE_:tickForWaterResistance:903503:
   if (source.isSelected()) {
-    waterResistance = 1;
+    waterResistance = "yes";
   } else {
-    waterResistance = 0;
+    waterResistance = "no";
   }
 } //_CODE_:tickForWaterResistance:903503:
 
-public void restartButtonClick(GButton source, GEvent event) { //_CODE_:restartButton:829414:
+public void resetButtonClick(GButton source, GEvent event) { //_CODE_:resetButton:829414:
   resetChoices();
   resetPrefs();
-} //_CODE_:restartButton:829414:
+  resultLabel.setText("Your Phone choice is...");
+} //_CODE_:resetButton:829414:
 
 
 
@@ -378,17 +381,17 @@ public void createGUI(){
   midrange.setTextBold();
   midrange.setOpaque(true);
   midrange.addEventHandler(this, "midrangeChosen");
-  flagship = new GOption(this, 10, 600, 120, 20);
-  flagship.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  flagship.setText("Powerful");
-  flagship.setTextBold();
-  flagship.setOpaque(true);
-  flagship.addEventHandler(this, "flagshipChosen");
+  powerful = new GOption(this, 10, 600, 120, 20);
+  powerful.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  powerful.setText("Powerful");
+  powerful.setTextBold();
+  powerful.setOpaque(true);
+  powerful.addEventHandler(this, "powerfulChosen");
   performanceGroup.addControl(anyPerformance);
   performanceGroup.addControl(budget);
   performanceGroup.addControl(midrange);
-  performanceGroup.addControl(flagship);
-  flagship.setSelected(true);
+  performanceGroup.addControl(powerful);
+  powerful.setSelected(true);
   batterySizeLabel = new GLabel(this, 200, 10, 170, 20);
   batterySizeLabel.setText("Battery Capacity (mAh)");
   batterySizeLabel.setTextBold();
@@ -518,11 +521,11 @@ public void createGUI(){
   resultLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   resultLabel.setText("Your Phone choice is...");
   resultLabel.setOpaque(true);
-  restartButton = new GButton(this, 310, 710, 80, 30);
-  restartButton.setText("Restart");
-  restartButton.setTextBold();
-  restartButton.setLocalColorScheme(GCScheme.RED_SCHEME);
-  restartButton.addEventHandler(this, "restartButtonClick");
+  resetButton = new GButton(this, 310, 710, 80, 30);
+  resetButton.setText("Reset");
+  resetButton.setTextBold();
+  resetButton.setLocalColorScheme(GCScheme.RED_SCHEME);
+  resetButton.addEventHandler(this, "resetButtonClick");
 }
 
 // Variable declarations 
@@ -560,7 +563,7 @@ GToggleGroup performanceGroup;
 GOption anyPerformance; 
 GOption budget; 
 GOption midrange; 
-GOption flagship; 
+GOption powerful; 
 GLabel batterySizeLabel; 
 GToggleGroup batteryGroup; 
 GOption anySize; 
@@ -585,4 +588,4 @@ GOption GB64;
 GLabel waterResistanceLabel; 
 GCheckbox tickForWaterResistance; 
 GLabel resultLabel; 
-GButton restartButton; 
+GButton resetButton; 

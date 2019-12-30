@@ -1,22 +1,22 @@
 Table phoneSpecs;
 
 class Phone {
-  int os;
-  int headphoneJack;
+  String os;
+  String headphoneJack;
   String displayDesign;
   String screenPanel;
   int screenSize;
   int cameras;
-  int performance;
+  String performance;
   int batterySize;
-  int dualSim;
-  int fluidDisplay;
+  String dualSim;
+  String fluidDisplay;
   int screenResolution;
   int minimumStorage;
-  int waterResistance;
+  String waterResistance;
 
-  Phone(int os, int hj, String dd, String sp, int ss, int c, int p, int bs, 
-    int ds, int fd, int sr, int ms, int wr) {
+  Phone(String os, String hj, String dd, String sp, int ss, int c, String p, int bs, 
+    String ds, String fd, int sr, int ms, String wr) {
     this.os = os;
     this.headphoneJack = hj; 
     this.displayDesign = dd;
