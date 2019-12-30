@@ -26,23 +26,22 @@ void setup() {
   size(400, 750);
   background(0);
   createGUI();
-
+  resetChoices();
   resetPrefs();
 }
 
 void draw() {
   specs = loadStrings("PhoneSpecs.csv");
-  form = loadStrings("preferences.txt"); //use test.txt if not working.;
-  phoneNames = loadStrings("names.txt");
+  form = loadStrings("preferences.csv"); //use test.txt if not working.;
+  phoneNames = loadStrings("names.csv");
   for (int i = 0; i < specs.length; i++) {
     sameLines = form[0].equals(specs[i]);
     if (sameLines) {
       resultLabel.setText(phoneNames[i]);
-      println(sameLines, bar);
       bar += 1;
     }
   }
-  formInput = createWriter("preferences.txt");
+  formInput = createWriter("preferences.csv");
   formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
     screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
     batterySize + "," + dualSim + "," + fluidDisplay + "," + screenResolution + "," +
@@ -71,6 +70,18 @@ void resetPrefs() {
 
 void resetChoices() {
   iOS.setSelected(true);
+  wantJack.setSelected(false);
+  bezelChoice.setSelected(true);
+  LCDChoice.setSelected(true);
+  size1.setSelected(true);
+  cameraSlider.setValue(1);
+  flagship.setSelected(true);
+  huge.setSelected(true);
+  wantDualSim.setSelected(false);
+  wantFluid.setSelected(false);
+  QHD.setSelected(true);
+  GB256.setSelected(true);
+  tickForWaterResistance.setSelected(false);
   redraw();
   resetPrefs(); 
   resultLabel.setText("Your Phone choice is...");
