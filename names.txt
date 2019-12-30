@@ -1,0 +1,3 @@
+NOTE: Make sure the line number at which the name of this phone is located in this file is the same number that contains the phone properties.
+Samsung Galaxy S10
+Apple iPhone 11 Pro
