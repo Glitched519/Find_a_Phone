@@ -31,7 +31,7 @@ void setup() {
 }
 
 void draw() {
-  specs = loadStrings("PhoneSpecs.txt");
+  specs = loadStrings("PhoneSpecs.csv");
   form = loadStrings("preferences.txt"); //use test.txt if not working.;
   phoneNames = loadStrings("names.txt");
   for (int i = 0; i < specs.length; i++) {
