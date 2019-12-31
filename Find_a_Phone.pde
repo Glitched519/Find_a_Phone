@@ -7,7 +7,7 @@ int screenSize = 1;
 int cameras = 1;
 String performance = "powerful";
 int batterySize = 1;
-String dualSim = "no";
+String expandableMemory = "no";
 String fluidDisplay = "no";
 int screenResolution = 1;
 int minimumStorage = 256;
@@ -16,21 +16,20 @@ PrintWriter formInput;
 boolean sameLines = false;
 String[] specs, form, phoneNames;
 boolean saved = false;
-int bar = 1;
 
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
-  screenSize, cameras, performance, batterySize, dualSim, fluidDisplay, 
+  screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
   screenResolution, minimumStorage, waterResistance);
 
 void setup() {
-  size(400, 750);
+  size(350, 560);
   background(0);
   createGUI();
   resetChoices();
   resetPrefs();
 }
 
-void draw() {
+void draw() {  
   specs = loadStrings("PhoneSpecs.csv");
   form = loadStrings("preferences.csv"); //use test.txt if not working.;
   phoneNames = loadStrings("names.csv");
@@ -38,13 +37,12 @@ void draw() {
     sameLines = form[0].equals(specs[i]);
     if (sameLines) {
       resultLabel.setText(phoneNames[i]);
-      bar += 1;
     }
   }
   formInput = createWriter("preferences.csv");
   formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
     screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
-    batterySize + "," + dualSim + "," + fluidDisplay + "," + screenResolution + "," +
+    batterySize + "," + expandableMemory + "," + fluidDisplay + "," + screenResolution + "," +
     minimumStorage + "," + waterResistance);
 
 
@@ -61,7 +59,7 @@ void resetPrefs() {
   cameras = 1;
   performance = "powerful";
   batterySize = 1;
-  dualSim = "no";
+  expandableMemory = "no";
   fluidDisplay = "no";
   screenResolution = 1;
   minimumStorage = 256;
@@ -77,7 +75,7 @@ void resetChoices() {
   cameraSlider.setValue(1);
   powerful.setSelected(true);
   huge.setSelected(true);
-  wantDualSim.setSelected(false);
+  wantExpandableMemory.setSelected(false);
   wantFluid.setSelected(false);
   QHD.setSelected(true);
   GB256.setSelected(true);

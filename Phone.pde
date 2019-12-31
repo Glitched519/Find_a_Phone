@@ -9,14 +9,14 @@ class Phone {
   int cameras;
   String performance;
   int batterySize;
-  String dualSim;
+  String expandableMemory;
   String fluidDisplay;
   int screenResolution;
   int minimumStorage;
   String waterResistance;
 
   Phone(String os, String hj, String dd, String sp, int ss, int c, String p, int bs, 
-    String ds, String fd, int sr, int ms, String wr) {
+    String em, String fd, int sr, int ms, String wr) {
     this.os = os;
     this.headphoneJack = hj; 
     this.displayDesign = dd;
@@ -25,7 +25,7 @@ class Phone {
     this.cameras = c;
     this.performance = p;
     this.batterySize = bs;
-    this.dualSim = ds;
+    this.expandableMemory = em;
     this.fluidDisplay = fd;
     this.screenResolution = sr;
     this.minimumStorage = ms;
