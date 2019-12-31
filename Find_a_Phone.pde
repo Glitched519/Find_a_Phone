@@ -22,8 +22,8 @@ Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel,
   screenResolution, minimumStorage, waterResistance);
 
 void setup() {
-  size(350, 560);
   background(0);
+  size(350, 560);
   createGUI();
   resetChoices();
   resetPrefs();
@@ -80,6 +80,5 @@ void resetChoices() {
   QHD.setSelected(true);
   GB256.setSelected(true);
   tickForWaterResistance.setSelected(false);
-  redraw();
-  resetPrefs(); 
+  resetPrefs();
 }
