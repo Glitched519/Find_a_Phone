@@ -41,9 +41,9 @@ void draw() {
         + phoneNames[i].replace(" ", "+") +".TRS0&_nkw="+ phoneNames[i].replace(" ", "+")+"&_sacat=0";
       amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
       walmartURL = "https://www.walmart.com/search/?query=" + phoneNames[i].replace(" ", "%20");
-      amazonButton.setVisible(true);
-      eBayButton.setVisible(true);
-      walmartButton.setVisible(true);
+      amazonButton.setEnabled(true);
+      eBayButton.setEnabled(true);
+      walmartButton.setEnabled(true);
     }
   }
   formInput = createWriter("CSV/preferences.csv");
@@ -87,7 +87,7 @@ void resetChoices() {
   QHD.setSelected(true);
   GB256.setSelected(true);
   tickForWaterResistance.setSelected(false);
-  amazonButton.setVisible(false);
-  eBayButton.setVisible(false);
-  walmartButton.setVisible(false);
+  amazonButton.setEnabled(false);
+  eBayButton.setEnabled(false);
+  walmartButton.setEnabled(false);
 }
