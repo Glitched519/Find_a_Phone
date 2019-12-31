@@ -15,7 +15,6 @@ String waterResistance = "no";
 PrintWriter formInput;
 boolean sameLines = false;
 String[] specs, form, phoneNames;
-boolean saved = false;
 
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
@@ -30,16 +29,16 @@ void setup() {
 }
 
 void draw() {  
-  specs = loadStrings("PhoneSpecs.csv");
-  form = loadStrings("preferences.csv"); //use test.txt if not working.;
-  phoneNames = loadStrings("names.csv");
+  specs = loadStrings("CSV/PhoneSpecs.csv");
+  form = loadStrings("CSV/preferences.csv"); //use test.txt if not working.;
+  phoneNames = loadStrings("CSV/names.csv");
   for (int i = 0; i < specs.length; i++) {
     sameLines = form[0].equals(specs[i]);
     if (sameLines) {
       resultLabel.setText(phoneNames[i]);
     }
   }
-  formInput = createWriter("preferences.csv");
+  formInput = createWriter("CSV/preferences.csv");
   formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
     screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
     batterySize + "," + expandableMemory + "," + fluidDisplay + "," + screenResolution + "," +
