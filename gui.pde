@@ -169,6 +169,18 @@ public void resetButtonClick(GButton source, GEvent event) { //_CODE_:resetButto
   resultLabel.setText("Your phone choice is...");
 } //_CODE_:resetButton:829414:
 
+public void amazonButtonClicked(GButton source, GEvent event) { //_CODE_:amazonButton:899904:
+  link(amazonURL);
+} //_CODE_:amazonButton:899904:
+
+public void eBayButtonClicked(GButton source, GEvent event) { //_CODE_:eBayButton:331682:
+  link(eBayURL);
+} //_CODE_:eBayButton:331682:
+
+public void walmartButtonClicked(GButton source, GEvent event) { //_CODE_:walmartButton:967478:
+  link(walmartURL);
+} //_CODE_:walmartButton:967478:
+
 
 
 // Create all the GUI controls. 
@@ -508,6 +520,20 @@ public void createGUI(){
   label1.setText("Special Features?");
   label1.setTextBold();
   label1.setOpaque(true);
+  amazonButton = new GButton(this, 10, 560, 330, 30);
+  amazonButton.setText("Amazon.com");
+  amazonButton.setTextBold();
+  amazonButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  amazonButton.addEventHandler(this, "amazonButtonClicked");
+  eBayButton = new GButton(this, 10, 600, 330, 30);
+  eBayButton.setText("eBay.com");
+  eBayButton.setTextBold();
+  eBayButton.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
+  eBayButton.addEventHandler(this, "eBayButtonClicked");
+  walmartButton = new GButton(this, 10, 640, 330, 30);
+  walmartButton.setText("Walmart.com");
+  walmartButton.setTextBold();
+  walmartButton.addEventHandler(this, "walmartButtonClicked");
 }
 
 // Variable declarations 
@@ -564,3 +590,6 @@ GCheckbox tickForWaterResistance;
 GLabel resultLabel; 
 GButton resetButton; 
 GLabel label1; 
+GButton amazonButton; 
+GButton eBayButton; 
+GButton walmartButton; 

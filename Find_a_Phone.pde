@@ -15,6 +15,7 @@ String waterResistance = "no";
 PrintWriter formInput;
 boolean sameLines = false;
 String[] specs, form, phoneNames;
+String amazonURL, eBayURL, walmartURL;
 
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
@@ -22,7 +23,7 @@ Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel,
 
 void setup() {
   background(0);
-  size(350, 560);
+  size(350, 680);
   createGUI();
   resetChoices();
   resetPrefs();
@@ -36,6 +37,13 @@ void draw() {
     sameLines = form[0].equals(specs[i]);
     if (sameLines) {
       resultLabel.setText(phoneNames[i]);
+      eBayURL = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.X"
+        + phoneNames[i].replace(" ", "+") +".TRS0&_nkw="+ phoneNames[i].replace(" ", "+")+"&_sacat=0";
+      amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
+      walmartURL = "https://www.walmart.com/search/?query=" + phoneNames[i].replace(" ", "%20");
+      amazonButton.setVisible(true);
+      eBayButton.setVisible(true);
+      walmartButton.setVisible(true);
     }
   }
   formInput = createWriter("CSV/preferences.csv");
@@ -79,5 +87,7 @@ void resetChoices() {
   QHD.setSelected(true);
   GB256.setSelected(true);
   tickForWaterResistance.setSelected(false);
-  resetPrefs();
+  amazonButton.setVisible(false);
+  eBayButton.setVisible(false);
+  walmartButton.setVisible(false);
 }
