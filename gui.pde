@@ -388,7 +388,7 @@ public void createGUI(){
   batteryGroup = new GToggleGroup();
   small = new GOption(this, 10, 360, 160, 20);
   small.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  small.setText("Small (≤3000)");
+  small.setText("Small (≤ 3000)");
   small.setTextBold();
   small.setOpaque(true);
   small.addEventHandler(this, "smallChosen");
@@ -400,7 +400,7 @@ public void createGUI(){
   regular.addEventHandler(this, "regularChosen");
   huge = new GOption(this, 10, 300, 160, 20);
   huge.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  huge.setText("HUGE (≥5000)");
+  huge.setText("HUGE (≥ 5000)");
   huge.setTextBold();
   huge.setOpaque(true);
   huge.addEventHandler(this, "hugeChosen");
@@ -505,12 +505,12 @@ public void createGUI(){
   tickForWaterResistance.setTextBold();
   tickForWaterResistance.setOpaque(true);
   tickForWaterResistance.addEventHandler(this, "waterResistanceTicked");
-  resultLabel = new GLabel(this, 10, 520, 240, 30);
+  resultLabel = new GLabel(this, 10, 520, 330, 30);
   resultLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   resultLabel.setText("Your phone choice is...");
   resultLabel.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   resultLabel.setOpaque(true);
-  resetButton = new GButton(this, 260, 520, 80, 30);
+  resetButton = new GButton(this, 350, 520, 160, 30);
   resetButton.setText("Reset");
   resetButton.setTextBold();
   resetButton.setLocalColorScheme(GCScheme.RED_SCHEME);
@@ -520,20 +520,28 @@ public void createGUI(){
   label1.setText("Special Features?");
   label1.setTextBold();
   label1.setOpaque(true);
-  amazonButton = new GButton(this, 10, 560, 330, 30);
+  amazonButton = new GButton(this, 350, 370, 160, 40);
   amazonButton.setText("Amazon.com");
   amazonButton.setTextBold();
   amazonButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   amazonButton.addEventHandler(this, "amazonButtonClicked");
-  eBayButton = new GButton(this, 10, 600, 330, 30);
+  eBayButton = new GButton(this, 350, 420, 160, 40);
   eBayButton.setText("eBay.com");
   eBayButton.setTextBold();
   eBayButton.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   eBayButton.addEventHandler(this, "eBayButtonClicked");
-  walmartButton = new GButton(this, 10, 640, 330, 30);
+  walmartButton = new GButton(this, 350, 470, 160, 40);
   walmartButton.setText("Walmart.com");
   walmartButton.setTextBold();
   walmartButton.addEventHandler(this, "walmartButtonClicked");
+  label3 = new GLabel(this, 350, 230, 160, 50);
+  label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label3.setText("All phone images are provided by and sourced from GSMArena.com");
+  label3.setLocalColorScheme(GCScheme.RED_SCHEME);
+  label3.setOpaque(true);
+  label4 = new GLabel(this, 350, 340, 160, 20);
+  label4.setText("Buy the phone from:");
+  label4.setOpaque(true);
 }
 
 // Variable declarations 
@@ -593,3 +601,5 @@ GLabel label1;
 GButton amazonButton; 
 GButton eBayButton; 
 GButton walmartButton; 
+GLabel label3; 
+GLabel label4; 

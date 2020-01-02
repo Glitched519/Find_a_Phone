@@ -12,8 +12,8 @@ iOS,no,notch,OLED,4,3,powerful,3,no,no,2,,yes
 iOS,no,notch,LCD,3,2,powerful,3,no,no,3,64,yes
 Android,no,bezel,OLED,3,2,powerful,3,no,yes,1,64,yes
 Android,no,bezel,OLED,2,2,powerful,4,no,yes,2,64,yes
-Android,yes,bezel,OLED,3,1,midrange,3,no,no,2,64,no
-Android,yes,bezel,OLED,3,1,midrange,4,no,no,2,64,no
+Android,yes,bezel,OLED,2,1,midrange,3,no,no,2,64,no
+Android,yes,bezel,OLED,2,1,midrange,4,no,no,2,64,no
 Android,yes,bezel,OLED,4,2,powerful,1,no,yes,2,128,no
 Android,yes,bezel-free,LCD,4,2,powerful,1,yes,no,2,64,no
 Android,yes,notch,OLED,4,5,midrange,1,no,no,2,256,no

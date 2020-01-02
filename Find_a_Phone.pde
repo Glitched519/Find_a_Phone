@@ -16,6 +16,7 @@ PrintWriter formInput;
 boolean sameLines = false;
 String[] specs, form, phoneNames;
 String amazonURL, eBayURL, walmartURL;
+PImage img;
 
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
@@ -23,7 +24,7 @@ Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel,
 
 void setup() {
   background(0);
-  size(350, 680);
+  size(520, 560);
   createGUI();
   resetChoices();
   resetPrefs();
@@ -33,12 +34,20 @@ void draw() {
   specs = loadStrings("CSV/PhoneSpecs.csv");
   form = loadStrings("CSV/preferences.csv"); //use test.txt if not working.;
   phoneNames = loadStrings("CSV/names.csv");
+  formInput = createWriter("CSV/preferences.csv");
   for (int i = 0; i < specs.length; i++) {
-    sameLines = form[0].equals(specs[i]);
+    try {
+      sameLines = form[0].equals(specs[i]);
+    }
+    catch(ArrayIndexOutOfBoundsException e) {
+      formInput.println("1");
+    }
     if (sameLines) {
       resultLabel.setText(phoneNames[i]);
+      img = loadImage("images/" + phoneNames[i] + ".jpg");
+      image(img, 350, 10);
       eBayURL = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.X"
-        + phoneNames[i].replace(" ", "+") +".TRS0&_nkw="+ phoneNames[i].replace(" ", "+")+"&_sacat=0";
+        + phoneNames[i].replace(" ", "+") + ".TRS0&_nkw=" + phoneNames[i].replace(" ", "+") + "&_sacat=0";
       amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
       walmartURL = "https://www.walmart.com/search/?query=" + phoneNames[i].replace(" ", "%20");
       amazonButton.setEnabled(true);
@@ -46,16 +55,12 @@ void draw() {
       walmartButton.setEnabled(true);
     }
   }
-  formInput = createWriter("CSV/preferences.csv");
   formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
     screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
     batterySize + "," + expandableMemory + "," + fluidDisplay + "," + screenResolution + "," +
     minimumStorage + "," + waterResistance);
-
-
   formInput.close();
 }
-
 
 void resetPrefs() {
   osChosen = "iOS";
@@ -74,6 +79,8 @@ void resetPrefs() {
 }
 
 void resetChoices() {
+  img = loadImage("images/unknown.jpg");
+  image(img, 350, 10);
   iOS.setSelected(true);
   wantJack.setSelected(false);
   bezelChoice.setSelected(true);
