@@ -25,15 +25,15 @@ Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel,
 void setup() {
   background(0);
   size(520, 560);
+  loadCSVs();
   createGUI();
   resetChoices();
   resetPrefs();
+  checkDuplicateSpecs();
 }
 
 void draw() {  
-  specs = loadStrings("CSV/PhoneSpecs.csv");
-  form = loadStrings("CSV/preferences.csv"); //use test.txt if not working.;
-  phoneNames = loadStrings("CSV/names.csv");
+  loadCSVs();
   formInput = createWriter("CSV/preferences.csv");
   for (int i = 0; i < specs.length; i++) {
     try {
@@ -62,6 +62,13 @@ void draw() {
   formInput.close();
 }
 
+  
+void loadCSVs() {
+  specs = loadStrings("CSV/PhoneSpecs.csv");
+  form = loadStrings("CSV/preferences.csv"); //use test.txt if not working.;
+  phoneNames = loadStrings("CSV/names.csv");
+}
+
 void resetPrefs() {
   osChosen = "iOS";
   headphoneJack = "no";
@@ -76,6 +83,20 @@ void resetPrefs() {
   screenResolution = 1;
   minimumStorage = 256;
   waterResistance = "no";
+}
+
+void checkDuplicateSpecs() {
+  for (int i = 1; i < specs.length; i++) {
+    for (int j = 1; j < specs.length-1; j++) {
+      if (specs[i].equals(specs[j])) {
+        if (phoneNames[j].equals(phoneNames[i]) || phoneNames[i].equals(phoneNames[j])) {
+          //println("same", j);
+        } else {
+          println(phoneNames[i], "specs match with", phoneNames[j], "specs.");
+        }
+      }
+    }
+  }
 }
 
 void resetChoices() {
