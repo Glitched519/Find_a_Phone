@@ -8,7 +8,7 @@ Android,no,hole,OLED,3,3,powerful,3,no,no,2,256,yes
 Android,yes,hole,OLED,4,3,powerful,2,yes,no,1,128,yes
 Android,yes,hole,OLED,2,2,powerful,3,yes,no,2,128,yes
 Android,no,notch,OLED,4,3,powerful,3,no,yes,2,128,no
-iOS,no,notch,OLED,4,3,powerful,3,no,no,2,,yes
+iOS,no,notch,OLED,4,3,powerful,3,no,no,2,64,yes
 iOS,no,notch,LCD,3,2,powerful,3,no,no,3,64,yes
 Android,no,bezel,OLED,3,2,powerful,3,no,yes,1,64,yes
 Android,no,bezel,OLED,2,2,powerful,4,no,yes,2,64,yes
@@ -37,3 +37,17 @@ Android,yes,bezel,LCD,2,2,midrange,4,yes,no,2,64,no
 Android,yes,bezel,LCD,4,2,midrange,4,yes,no,2,64,no
 Android,no,bezel,OLED,3,3,powerful,3,yes,no,2,128,no
 Android,yes,hole,OLED,4,4,midrange,2,yes,no,2,64,no
+Android,yes,notch,OLED,4,3,midrange,2,yes,no,2,128,no
+Android,no,bezel-free,OLED,4,3,midrange,3,no,no,2,128,no
+Android,no,notch,OLED,4,3,midrange,2,yes,no,2,128,no
+Android,no,hole,OLED,4,3,midrange,3,yes,no,2,128,no
+Android,yes,notch,OLED,4,3,midrange,1,yes,no,2,64,no
+Android,yes,notch,OLED,3,2,budget,1,yes,no,2,32,no
+Android,no,hole,LCD,3,4,powerful,3,no,no,2,128,no
+Android,yes,hole,LCD,4,4,midrange,2,yes,no,2,64,no
+Android,yes,bezel,OLED,4,2,powerful,2,yes,no,1,128,yes
+Android,yes,bezel,OLED,3,2,powerful,3,yes,no,1,64,yes
+Android,yes,bezel,OLED,2,1,powerful,4,yes,no,1,64,yes
+iOS,no,notch,OLED,4,2,powerful,3,no,no,2,64,yes
+iOS,no,notch,OLED,2,2,powerful,4,no,no,2,64,yes
+iOS,no,notch,LCD,3,1,powerful,4,no,no,3,64,yes
