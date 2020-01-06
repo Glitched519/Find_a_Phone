@@ -4,7 +4,7 @@ This program only runs in Processing 3.x. If you don't have Processing, download
 *G4P GUI Builder is a graphic design tool for creating user interfaces with G4P. G4P provides a set of 2D GUI controls and multiple window support.*
 
 ### Building the Application
-If you want to build the application, go to File -> Export Application (Ctrl+Shift+E). Select the OS you want to build it for.  _Linux users, please note you can choose the option to **Embed Java for Linux (64-bit)** if they don't have Java 8 installed._
+If you want to build the application, go to File -> Export Application (Ctrl+Shift+E). Select the OS you want to build it for.  _Linux users, please note you can choose the option to **Embed Java for Linux (64-bit)** if you don't have Java 8 installed. However, the application will weigh a few hundred MB more._
 After building the application, the application won't run until you copy the **CSV** and **images** into the directory where the executable is at.
 
 ### Support
