@@ -181,6 +181,10 @@ public void walmartButtonClicked(GButton source, GEvent event) { //_CODE_:walmar
   link(walmartURL);
 } //_CODE_:walmartButton:967478:
 
+public void phoneSearchEdited(GTextField source, GEvent event) { //_CODE_:phoneSearch:201213:
+
+} //_CODE_:phoneSearch:201213:
+
 
 
 // Create all the GUI controls. 
@@ -542,6 +546,14 @@ public void createGUI(){
   label4 = new GLabel(this, 350, 340, 160, 20);
   label4.setText("Buy the phone from:");
   label4.setOpaque(true);
+  phoneSearch = new GTextField(this, 520, 10, 200, 20, G4P.SCROLLBARS_NONE);
+  phoneSearch.setPromptText("Search for a phone...");
+  phoneSearch.setOpaque(true);
+  phoneSearch.addEventHandler(this, "phoneSearchEdited");
+  specsRecall = new GLabel(this, 520, 40, 200, 30);
+  specsRecall.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  specsRecall.setText("The specs are...");
+  specsRecall.setOpaque(true);
 }
 
 // Variable declarations 
@@ -603,3 +615,5 @@ GButton eBayButton;
 GButton walmartButton; 
 GLabel label3; 
 GLabel label4; 
+GTextField phoneSearch; 
+GLabel specsRecall; 

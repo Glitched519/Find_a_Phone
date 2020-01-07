@@ -25,7 +25,7 @@ class Phone {
     this.cameras = c;
     this.performance = p;
     this.batterySize = bs;
-    this.expandableMemory   = em;
+    this.expandableMemory = em;
     this.fluidDisplay = fd;
     this.screenResolution = sr;
     this.minimumStorage = ms;

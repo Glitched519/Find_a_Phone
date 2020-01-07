@@ -17,6 +17,7 @@ boolean sameLines = false;
 String[] specs, form, phoneNames;
 String amazonURL, eBayURL, walmartURL;
 PImage img;
+String search;
 
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
@@ -24,8 +25,8 @@ Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel,
 
 void setup() {
   background(0);
-  size(520, 560);
-  loadCSVs();
+  size(730, 560);
+  loadCSVs(); 
   createGUI();
   resetChoices();
   resetPrefs();
@@ -34,6 +35,7 @@ void setup() {
 
 void draw() {  
   loadCSVs();
+  search = phoneSearch.getText();
   formInput = createWriter("CSV/preferences.csv");
   for (int i = 0; i < specs.length; i++) {
     try {
@@ -42,7 +44,7 @@ void draw() {
     catch(ArrayIndexOutOfBoundsException e) {
       formInput.println("1");
     }
-    if (sameLines) {
+    if (sameLines || search.equals(phoneNames[i])) {
       resultLabel.setText(phoneNames[i]);
       img = loadImage("images/" + phoneNames[i] + ".jpg");
       image(img, 350, 10);
@@ -53,7 +55,10 @@ void draw() {
       amazonButton.setEnabled(true);
       eBayButton.setEnabled(true);
       walmartButton.setEnabled(true);
+      specsRecall.setText(specs[i]);
     }
+
+
   }
   formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
     screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
@@ -100,6 +105,8 @@ void checkDuplicateSpecs() {
 }
 
 void resetChoices() {
+  phoneSearch.setText("");
+  specsRecall.setText("Phone specs are...");
   img = loadImage("images/unknown.jpg");
   image(img, 350, 10);
   iOS.setSelected(true);
