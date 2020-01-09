@@ -50,6 +50,7 @@ void draw() {
     catch(ArrayIndexOutOfBoundsException e) {
       formInput.println("1");
     }
+    if (keyCode == ENTER) {
     if (sameLines || search.equals(phoneNames[i])) {
       img = loadImage("images/" + phoneNames[i] + ".jpg");
       image(img, 350, 10);
@@ -60,7 +61,7 @@ void draw() {
       amazonButton.setEnabled(true);
       eBayButton.setEnabled(true);
       walmartButton.setEnabled(true);
-      phoneSearch.setTextEditEnabled(false);
+      
       phoneSearch.setText(phoneNames[i]);
       specComponents = splitTokens(specs[i], ",");
       osChosen = specComponents[0];
@@ -82,7 +83,7 @@ void draw() {
       mins = specComponents[11];
       waterResistance = specComponents[12];
       phone.matchChoicesWithSpecs();
-
+      phoneSearch.setTextEditEnabled(false);
     }
 
 
@@ -92,6 +93,7 @@ void draw() {
     batterySize + "," + expandableMemory + "," + fluidDisplay + "," + screenResolution + "," +
     minimumStorage + "," + waterResistance);
   formInput.close();
+  }
 }
 
 
