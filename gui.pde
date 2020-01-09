@@ -155,18 +155,17 @@ public void GB64Chosen(GOption source, GEvent event) { //_CODE_:GB64:285405:
   minimumStorage = 64;
 } //_CODE_:GB64:285405:
 
-public void waterResistanceTicked(GCheckbox source, GEvent event) { //_CODE_:tickForWaterResistance:903503:
+public void waterResistanceTicked(GCheckbox source, GEvent event) { //_CODE_:wantWaterResistance:903503:
   if (source.isSelected()) {
     waterResistance = "yes";
   } else {
     waterResistance = "no";
   }
-} //_CODE_:tickForWaterResistance:903503:
+} //_CODE_:wantWaterResistance:903503:
 
 public void resetButtonClick(GButton source, GEvent event) { //_CODE_:resetButton:829414:
   resetChoices();
   resetPrefs();
-  resultLabel.setText("Your phone choice is...");
 } //_CODE_:resetButton:829414:
 
 public void amazonButtonClicked(GButton source, GEvent event) { //_CODE_:amazonButton:899904:
@@ -182,8 +181,11 @@ public void walmartButtonClicked(GButton source, GEvent event) { //_CODE_:walmar
 } //_CODE_:walmartButton:967478:
 
 public void phoneSearchEdited(GTextField source, GEvent event) { //_CODE_:phoneSearch:201213:
-
 } //_CODE_:phoneSearch:201213:
+
+public void phoneListEdited(GTextArea source, GEvent event) { //_CODE_:phoneList:579133:
+
+} //_CODE_:phoneList:579133:
 
 
 
@@ -465,7 +467,7 @@ public void createGUI(){
   QHD.setSelected(true);
   storageLabel = new GLabel(this, 180, 170, 160, 20);
   storageLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  storageLabel.setText("Storage Capacity (GB)");
+  storageLabel.setText("Minimum Storage (GB)");
   storageLabel.setTextBold();
   storageLabel.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   storageLabel.setOpaque(true);
@@ -503,18 +505,13 @@ public void createGUI(){
   storageGroup.addControl(GB128);
   storageGroup.addControl(GB32);
   storageGroup.addControl(GB64);
-  tickForWaterResistance = new GCheckbox(this, 180, 360, 160, 20);
-  tickForWaterResistance.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  tickForWaterResistance.setText("Water Resistance");
-  tickForWaterResistance.setTextBold();
-  tickForWaterResistance.setOpaque(true);
-  tickForWaterResistance.addEventHandler(this, "waterResistanceTicked");
-  resultLabel = new GLabel(this, 10, 520, 330, 30);
-  resultLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  resultLabel.setText("Your phone choice is...");
-  resultLabel.setLocalColorScheme(GCScheme.GOLD_SCHEME);
-  resultLabel.setOpaque(true);
-  resetButton = new GButton(this, 350, 520, 160, 30);
+  wantWaterResistance = new GCheckbox(this, 180, 360, 160, 20);
+  wantWaterResistance.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
+  wantWaterResistance.setText("Water Resistance");
+  wantWaterResistance.setTextBold();
+  wantWaterResistance.setOpaque(true);
+  wantWaterResistance.addEventHandler(this, "waterResistanceTicked");
+  resetButton = new GButton(this, 350, 520, 160, 20);
   resetButton.setText("Reset");
   resetButton.setTextBold();
   resetButton.setLocalColorScheme(GCScheme.RED_SCHEME);
@@ -546,14 +543,17 @@ public void createGUI(){
   label4 = new GLabel(this, 350, 340, 160, 20);
   label4.setText("Buy the phone from:");
   label4.setOpaque(true);
-  phoneSearch = new GTextField(this, 520, 10, 200, 20, G4P.SCROLLBARS_NONE);
+  phoneSearch = new GTextField(this, 10, 520, 330, 20, G4P.SCROLLBARS_NONE);
   phoneSearch.setPromptText("Search for a phone...");
   phoneSearch.setOpaque(true);
   phoneSearch.addEventHandler(this, "phoneSearchEdited");
-  specsRecall = new GLabel(this, 520, 40, 200, 30);
-  specsRecall.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  specsRecall.setText("The specs are...");
-  specsRecall.setOpaque(true);
+  phoneList = new GTextArea(this, 520, 30, 200, 510, G4P.SCROLLBARS_VERTICAL_ONLY | G4P.SCROLLBARS_AUTOHIDE);
+  phoneList.setOpaque(true);
+  phoneList.addEventHandler(this, "phoneListEdited");
+  phoneLabel = new GLabel(this, 520, 10, 200, 20);
+  phoneLabel.setText("All Phones:");
+  phoneLabel.setTextBold();
+  phoneLabel.setOpaque(true);
 }
 
 // Variable declarations 
@@ -606,8 +606,7 @@ GOption GB256;
 GOption GB128; 
 GOption GB32; 
 GOption GB64; 
-GCheckbox tickForWaterResistance; 
-GLabel resultLabel; 
+GCheckbox wantWaterResistance; 
 GButton resetButton; 
 GLabel label1; 
 GButton amazonButton; 
@@ -616,4 +615,5 @@ GButton walmartButton;
 GLabel label3; 
 GLabel label4; 
 GTextField phoneSearch; 
-GLabel specsRecall; 
+GTextArea phoneList; 
+GLabel phoneLabel; 
