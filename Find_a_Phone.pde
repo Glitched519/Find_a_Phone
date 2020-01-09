@@ -50,6 +50,7 @@ void draw() {
     catch(ArrayIndexOutOfBoundsException e) {
       formInput.println("1");
     }
+    
     if (keyCode == ENTER) {
     if (sameLines || search.equals(phoneNames[i])) {
       img = loadImage("images/" + phoneNames[i] + ".jpg");
@@ -83,7 +84,7 @@ void draw() {
       mins = specComponents[11];
       waterResistance = specComponents[12];
       phone.matchChoicesWithSpecs();
-      phoneSearch.setTextEditEnabled(false);
+      phoneSearch.setTextEditEnabled(false); //Used here to prevent NullPointerException
     }
 
 
