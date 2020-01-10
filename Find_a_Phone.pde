@@ -22,19 +22,18 @@ PImage img;
 String search;
 String[] specComponents;
 
-
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
   screenResolution, minimumStorage, waterResistance);
 
-void setup() {
+public void setup(){
   background(0);
   size(730, 550);
   loadCSVs(); 
   createGUI();
   resetChoices();
   resetPrefs();
-  checkDuplicateSpecs();
+  checkDuplicateSpecs(); 
   
   //PhoneList is uneditable and shows all phones names from names.csv
   phoneList.setTextEditEnabled(false);
@@ -43,7 +42,7 @@ void setup() {
   }
 }
 
-void draw() {  
+public void draw(){
   loadCSVs();
   search = phoneSearch.getText();
   
@@ -139,15 +138,15 @@ void resetChoices() {
   image(img, 560, 10);
   iOS.setSelected(true);
   wantJack.setSelected(false);
-  bezelChoice.setSelected(true);
-  LCDChoice.setSelected(true);
+  bezel.setSelected(true);
+  LCD.setSelected(true);
   size1.setSelected(true);
   cameraSlider.setValue(1);
   powerful.setSelected(true);
-  huge.setSelected(true);
+  HUGE.setSelected(true);
   wantExpandableMemory.setSelected(false);
   wantFluid.setSelected(false);
-  QHD.setSelected(true);
+  p1440.setSelected(true);
   GB256.setSelected(true);
   wantWaterResistance.setSelected(false);
   amazonButton.setEnabled(false);

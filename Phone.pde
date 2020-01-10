@@ -1,5 +1,3 @@
-Table phoneSpecs;
-
 class Phone {
   String osChosen;
   String headphoneJack;
@@ -31,7 +29,7 @@ class Phone {
     this.minimumStorage = ms;
     this.waterResistance = wr;
   }
-
+  
   //Sets the choices based on the chosen phone's specs
   void matchChoicesWithSpecs() {
     
@@ -51,20 +49,20 @@ class Phone {
     
     //Display Design
     if (specComponents[2].equals("bezel")) {
-      bezelChoice.setSelected(true);
+      bezel.setSelected(true);
     } else if (specComponents[2].equals("bezel-free")) {
-      bezelFreeChoice.setSelected(true);
+      bezelFree.setSelected(true);
     } else if (specComponents[2].equals("hole")) {
-      holePunchChoice.setSelected(true);
+      hole.setSelected(true);
     } else if (specComponents[2].equals("notch")) {
-      notchChoice.setSelected(true);
+      notch.setSelected(true);
     }
     
     //Screen Panel
     if (specComponents[3].equals("LCD")) {
-      LCDChoice.setSelected(true);
+      LCD.setSelected(true);
     } else if (specComponents[3].equals("OLED")) {
-      OLEDChoice.setSelected(true);
+      OLED.setSelected(true);
     }
     
     //Screen Size
@@ -94,7 +92,7 @@ class Phone {
     
     //Battery Size
     if (specComponents[7].equals("1")) {
-      huge.setSelected(true);
+      HUGE.setSelected(true);
     } else if (specComponents[7].equals("2")) {
       large.setSelected(true);
     } else if (specComponents[7].equals("3")) {
@@ -119,11 +117,11 @@ class Phone {
     
     //Screen Resolution
     if (specComponents[10].equals("1")) {
-      QHD.setSelected(true);
+      p1440.setSelected(true);
     } else if (specComponents[10].equals("2")) {
-      FHD.setSelected(true);
+      p1080.setSelected(true);
     } else if (specComponents[10].equals("3")) {
-      HD.setSelected(true);
+      p720.setSelected(true);
     }
     
     //Minimum Storage
