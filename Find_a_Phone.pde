@@ -40,7 +40,7 @@ public void setup(){
   for (int i = 1; i < phoneNames.length; i++) {
     phoneList.appendText(phoneNames[i]);
   }
-}
+}  
 
 public void draw(){
   loadCSVs();

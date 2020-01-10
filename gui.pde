@@ -502,6 +502,7 @@ public void createGUI(){
   sourceLabel = new GLabel(this, 560, 230, 160, 50);
   sourceLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   sourceLabel.setText("All phone images are provided by and sourced from GSMArena.com.");
+  sourceLabel.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   sourceLabel.setOpaque(true);
 }
 
