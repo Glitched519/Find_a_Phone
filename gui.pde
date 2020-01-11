@@ -158,24 +158,18 @@ public void cameraSliderSlid(GSlider source, GEvent event) { //_CODE_:cameraSlid
   cameras = source.getValueI();
 } //_CODE_:cameraSlider:260661:
 
-public void phoneSearchEdited(GTextField source, GEvent event) { //_CODE_:phoneSearch:809450:
-} //_CODE_:phoneSearch:809450:
-
 public void resetButtonClicked(GButton source, GEvent event) { //_CODE_:resetButton:763317:
-  resetChoices();
-  resetPrefs();
+  frameRate(60);
+  reset();
 } //_CODE_:resetButton:763317:
-
-public void phoneListEdited(GTextArea source, GEvent event) { //_CODE_:phoneList:497039:
-} //_CODE_:phoneList:497039:
 
 public void amazonButtonClicked(GButton source, GEvent event) { //_CODE_:amazonButton:719653:
   link(amazonURL);
-} //_CODE_:amazonButton:719653:
+}
 
 public void eBayButtonClicked(GButton source, GEvent event) { //_CODE_:eBayButton:566782:
   link(eBayURL);
-} //_CODE_:eBayButton:566782:
+}
 
 public void walmartButtonClicked(GButton source, GEvent event) { //_CODE_:walmartButton:703691:
   link(walmartURL);
@@ -471,20 +465,10 @@ public void createGUI(){
   cameraSlider.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   cameraSlider.setOpaque(true);
   cameraSlider.addEventHandler(this, "cameraSliderSlid");
-  phoneSearch = new GTextField(this, 10, 520, 210, 20, G4P.SCROLLBARS_NONE);
-  phoneSearch.setPromptText("Search for a phone here...");
-  phoneSearch.setOpaque(true);
-  phoneSearch.addEventHandler(this, "phoneSearchEdited");
   resetButton = new GButton(this, 230, 520, 110, 20);
   resetButton.setText("Reset");
   resetButton.setLocalColorScheme(GCScheme.RED_SCHEME);
   resetButton.addEventHandler(this, "resetButtonClicked");
-  phoneLabel = new GLabel(this, 350, 10, 200, 20);
-  phoneLabel.setText("All Phones to Choose from:");
-  phoneLabel.setOpaque(true);
-  phoneList = new GTextArea(this, 350, 30, 200, 510, G4P.SCROLLBARS_VERTICAL_ONLY | G4P.SCROLLBARS_AUTOHIDE);
-  phoneList.setOpaque(true);
-  phoneList.addEventHandler(this, "phoneListEdited");
   amazonButton = new GButton(this, 560, 370, 160, 50);
   amazonButton.setText("Amazon.com");
   amazonButton.setLocalColorScheme(GCScheme.GREEN_SCHEME);
@@ -504,6 +488,11 @@ public void createGUI(){
   sourceLabel.setText("All phone images are provided by and sourced from GSMArena.com.");
   sourceLabel.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   sourceLabel.setOpaque(true);
+  phoneLabel = new GLabel(this, 10, 520, 210, 20);
+  phoneLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  phoneLabel.setText("Your phone of choice is...");
+  phoneLabel.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  phoneLabel.setOpaque(true);
 }
 
 // Variable declarations 
@@ -559,12 +548,10 @@ GCheckbox wantExpandableMemory;
 GCheckbox wantJack; 
 GLabel numberOfRearCamerasLabel; 
 GSlider cameraSlider; 
-GTextField phoneSearch; 
 GButton resetButton; 
-GLabel phoneLabel; 
-GTextArea phoneList; 
 GButton amazonButton; 
 GButton eBayButton; 
 GButton walmartButton; 
 GLabel buyThePhoneFromLabel; 
 GLabel sourceLabel; 
+GLabel phoneLabel; 
