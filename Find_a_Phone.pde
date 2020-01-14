@@ -25,33 +25,37 @@ PImage img;
 String search;
 String[] specComponents;
 
-//Better dropdown menu than G4P's
+//Better menu than G4P's drop menu
 ControlP5 cp5;
 PFont font;
 DropdownList phoneList;
 
+//Create instance of phone
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
   screenResolution, minimumStorage, waterResistance);
 
+//Prepares window on start
 void setup() {
   background(0);
   size(730, 550);
   loadCSVs(); 
   createGUI();
-  resetChoices();
-  resetPrefs();
   checkDuplicateSpecs(); 
   cp5 = new ControlP5(this);
   font = createFont("Arial", 12);
+  img = loadImage("images/unknown.jpg");
+  image(img, 560, 10);
   initPhoneList();
 }
 
+//Runs constantly
 void draw() {
+  //Phone list/menu is always open
   if (!phoneList.isOpen()) {
     phoneList.open();
   }
-
+  
   loadCSVs();
   search = phoneLabel.getText();
 
@@ -68,13 +72,15 @@ void draw() {
       formInput.println("1");
     }
 
-    //Writes the choices to the form input file and get a matching result
+    //If the label of the phone list doesn't match with to bottom label, then match both labels
     if (!search.equals(phoneList.getLabel())) { 
       phoneLabel.setText(phoneList.getLabel());
     }
+    
     /*If the choices match any specs in the specs database or search string matches 
      with any phone name.*/
     else if (sameLines || search.equals(phoneNames[i])) {
+      
       //Loads image, three links, and phone search string based on phone name
       phoneList.setLabel(phoneNames[i]);
       phoneLabel.setText(phoneNames[i]);
@@ -111,7 +117,7 @@ void draw() {
       phone.matchChoicesWithSpecs();
     }
 
-    //This is what the spec strings llook like in form input and phone specs databases.
+    //This is what the spec strings look like in form input and phone specs databases:
     formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
       screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
       batterySize + "," + expandableMemory + "," + fluidDisplay + "," + screenResolution + "," +
@@ -121,25 +127,10 @@ void draw() {
 }
 
 void reset() {
-  resetChoices();
-  resetPrefs();
   cp5 = new ControlP5(this);
   initPhoneList();
-}
-
-void initPhoneList() {
-  phoneList = cp5.addDropdownList("Find a phone from the list");
-  phoneList.setPosition(350, 10);
-  phoneList.setSize(200, 530);
-  phoneList.setFont(font);
-  phoneList.setBarHeight(25);
-  phoneList.setItemHeight(20);
-  phoneList.addItems(phoneNames);
-  phoneList.removeItem(phoneNames[0]);
-}
-
-//Resets the specs values back to their defaults
-void resetPrefs() {
+  
+  //Resets the specs values back to their defaults
   osChosen = "iOS";
   headphoneJack = "no";
   displayDesign = "bezel";
@@ -153,10 +144,8 @@ void resetPrefs() {
   screenResolution = 1;
   minimumStorage = 256;
   waterResistance = "no";
-}
-
-//Resets the choices selected back to their default values
-void resetChoices() {
+  
+  //Resets the choices selected back to their default values
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
   iOS.setSelected(true);
@@ -175,6 +164,17 @@ void resetChoices() {
   amazonButton.setEnabled(false);
   eBayButton.setEnabled(false);
   walmartButton.setEnabled(false);
+}
+
+void initPhoneList() {
+  phoneList = cp5.addDropdownList("Find a phone from the list");
+  phoneList.setPosition(350, 10);
+  phoneList.setSize(200, 530);
+  phoneList.setFont(font);
+  phoneList.setBarHeight(25);
+  phoneList.setItemHeight(20);
+  phoneList.addItems(phoneNames);
+  phoneList.removeItem(phoneNames[0]);
 }
 
 //loads the "strings" from the database files
