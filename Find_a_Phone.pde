@@ -43,26 +43,8 @@ void setup() {
   resetPrefs();
   checkDuplicateSpecs(); 
   cp5 = new ControlP5(this);
-  font = createFont("Source Code Pro", 12);
+  font = createFont("Arial", 12);
   initPhoneList();
-}
-
-void reset() {
-  resetChoices();
-  resetPrefs();
-  cp5 = new ControlP5(this);
-  initPhoneList();
-}
-
-void initPhoneList() {
-  phoneList = cp5.addDropdownList("");
-  phoneList.setPosition(350, 10);
-  phoneList.setSize(200, 520);
-  phoneList.setFont(font);
-  phoneList.setBarHeight(15);
-  phoneList.setItemHeight(20);
-  phoneList.addItems(phoneNames);
-  phoneList.removeItem(phoneNames[0]);
 }
 
 void draw() {
@@ -87,13 +69,14 @@ void draw() {
     }
 
     //Writes the choices to the form input file and get a matching result
-    if (search != phoneList.getLabel()) { 
+    if (!search.equals(phoneList.getLabel())) { 
       phoneLabel.setText(phoneList.getLabel());
     }
     /*If the choices match any specs in the specs database or search string matches 
      with any phone name.*/
     else if (sameLines || search.equals(phoneNames[i])) {
       //Loads image, three links, and phone search string based on phone name
+      phoneList.setLabel(phoneNames[i]);
       phoneLabel.setText(phoneNames[i]);
       img = loadImage("images/" + phoneNames[i] + ".jpg");
       image(img, 560, 10);
@@ -135,7 +118,24 @@ void draw() {
       minimumStorage + "," + waterResistance);
     formInput.close();
   }
-  
+}
+
+void reset() {
+  resetChoices();
+  resetPrefs();
+  cp5 = new ControlP5(this);
+  initPhoneList();
+}
+
+void initPhoneList() {
+  phoneList = cp5.addDropdownList("Find a phone from the list");
+  phoneList.setPosition(350, 10);
+  phoneList.setSize(200, 530);
+  phoneList.setFont(font);
+  phoneList.setBarHeight(25);
+  phoneList.setItemHeight(20);
+  phoneList.addItems(phoneNames);
+  phoneList.removeItem(phoneNames[0]);
 }
 
 //Resets the specs values back to their defaults
