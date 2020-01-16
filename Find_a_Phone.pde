@@ -18,20 +18,17 @@ String waterResistance = "no";
 
 //Meta components
 PrintWriter formInput;
-boolean sameLines = false;
-String[] specs, form, phoneNames;
-String amazonURL, eBayURL, walmartURL;
+boolean foundMatch = false;
+String[] specs, form, phoneNames, specComponents;
+String amazonURL, eBayURL, walmartURL, search;
 PImage img;
-String search;
-String[] specComponents;
-Button walmartButton, eBayButton, amazonButton, resetButton;
 
 //Better menu than G4P's dropdown menu
 ControlP5 cp5;
 PFont listFont, buttonFont;
 DropdownList phoneList;
 
-//Create instance of phone
+//Create instances of phone and custom GUI
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
   screenResolution, minimumStorage, waterResistance);
@@ -42,22 +39,19 @@ void setup() {
   background(0);
   size(730, 550);
   loadCSVs(); 
-  cp5 = new ControlP5(this);
-  createGUI();
+  cp5 = new ControlP5(this); 
   checkDuplicateSpecs(); 
   listFont = createFont("Noto Sans Condensed Bold", 14);
   buttonFont = createFont("Noto Sans Bold", 18);
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
-  gui.initPhoneList();
-  gui.initButtons();
+  gui.custom();
+  createGUI();
 }
 
 //Runs constantly
 void draw() {
-  if (resetButton.isMousePressed()) {
-    gui.reset();
-  }
+  gui.checkResetButtonPressed();
   //Phone list/menu is always open
   if (!phoneList.isOpen()) {
     phoneList.open();
@@ -73,7 +67,7 @@ void draw() {
    it is only one line long.*/
   for (int i = 0; i < specs.length; i++) {
     try {
-      sameLines = form[0].equals(specs[i]);
+      foundMatch = form[0].equals(specs[i]);
     }
     catch(ArrayIndexOutOfBoundsException e) {
       formInput.println("1");
@@ -86,7 +80,7 @@ void draw() {
 
     /*If the choices match any specs in the specs database or search string matches 
      with any phone name.*/
-    else if (sameLines || search.equals(phoneNames[i])) {
+    else if (foundMatch || search.equals(phoneNames[i])) {
 
       //Loads image, three links, and phone search string based on phone name
       phoneList.setLabel(phoneNames[i]);
@@ -97,12 +91,7 @@ void draw() {
         + phoneNames[i].replace(" ", "+") + ".TRS0&_nkw=" + phoneNames[i].replace(" ", "+") + "&_sacat=0";
       amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
       walmartURL = "https://www.walmart.com/search/?query=" + phoneNames[i].replace(" ", "%20");
-      amazonButton.setLock(false);
-      eBayButton.setLock(false);
-      walmartButton.setLock(false);
-      gui.shoppingButtonClicked(amazonButton, amazonURL);
-      gui.shoppingButtonClicked(eBayButton, eBayURL);
-      gui.shoppingButtonClicked(walmartButton, walmartURL);    
+      gui.enableShoppingButtons();
 
       //Sets the spec values to each of the array components loaded
       specComponents = splitTokens(specs[i], ",");

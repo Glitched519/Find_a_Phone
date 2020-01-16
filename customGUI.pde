@@ -1,5 +1,27 @@
 class CustomGUI {
 
+  Button walmartButton, eBayButton, amazonButton, resetButton;
+
+  void custom() {
+    initPhoneList();
+    initButtons();
+  }
+
+  void checkResetButtonPressed() {
+    if (resetButton.isMousePressed()) {
+      gui.reset();
+    }
+  }
+
+  void enableShoppingButtons() {
+    amazonButton.setLock(false);
+    eBayButton.setLock(false);
+    walmartButton.setLock(false);
+    gui.shoppingButtonClicked(amazonButton, amazonURL);
+    gui.shoppingButtonClicked(eBayButton, eBayURL);
+    gui.shoppingButtonClicked(walmartButton, walmartURL);
+  }
+
   void initPhoneList() {
     phoneList = cp5.addDropdownList("Find a phone from the list");
     phoneList.setPosition(350, 10);
