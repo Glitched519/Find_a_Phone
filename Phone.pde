@@ -80,7 +80,7 @@ class Phone {
     }
 
     //Number of Rear Cameras
-    cameraSlider.setValue(Integer.parseInt(specComponents[5]));
+    gui.cameraSlider.setValue(Integer.parseInt(specComponents[5]));
     //Performance
     if (specComponents[6].equals("powerful")) {
       powerful.setSelected(true);

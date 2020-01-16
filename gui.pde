@@ -154,9 +154,6 @@ public void wantJackTicked(GCheckbox source, GEvent event) { //_CODE_:wantJack:3
   }
 } //_CODE_:wantJack:397423:
 
-public void cameraSliderSlid(GSlider source, GEvent event) { //_CODE_:cameraSlider:260661:
-  cameras = source.getValueI();
-} //_CODE_:cameraSlider:260661:
 
 
 
@@ -437,17 +434,6 @@ public void createGUI(){
   numberOfRearCamerasLabel.setText("# of Rear Cameras");
   numberOfRearCamerasLabel.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   numberOfRearCamerasLabel.setOpaque(true);
-  cameraSlider = new GSlider(this, 180, 410, 160, 100, 10.0);
-  cameraSlider.setShowValue(true);
-  cameraSlider.setShowLimits(true);
-  cameraSlider.setLimits(1, 1, 5);
-  cameraSlider.setNbrTicks(5);
-  cameraSlider.setStickToTicks(true);
-  cameraSlider.setShowTicks(true);
-  cameraSlider.setNumberFormat(G4P.INTEGER, 0);
-  cameraSlider.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
-  cameraSlider.setOpaque(true);
-  cameraSlider.addEventHandler(this, "cameraSliderSlid");
   buyThePhoneFromLabel = new GLabel(this, 560, 340, 160, 20);
   buyThePhoneFromLabel.setText("Buy the phone from:");
   buyThePhoneFromLabel.setOpaque(true);
@@ -515,7 +501,6 @@ GCheckbox wantFluid;
 GCheckbox wantExpandableMemory; 
 GCheckbox wantJack; 
 GLabel numberOfRearCamerasLabel; 
-GSlider cameraSlider; 
 GLabel buyThePhoneFromLabel; 
 GLabel sourceLabel; 
 GLabel phoneLabel; 

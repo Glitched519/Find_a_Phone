@@ -23,10 +23,8 @@ String[] specs, form, phoneNames, specComponents;
 String amazonURL, eBayURL, walmartURL, search;
 PImage img;
 
-//Better menu than G4P's dropdown menu
+//Initializes controls for ControlP5's GUI (batter than G4P's)
 ControlP5 cp5;
-PFont listFont, buttonFont;
-DropdownList phoneList;
 
 //Create instances of phone and custom GUI
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
@@ -41,8 +39,8 @@ void setup() {
   loadCSVs(); 
   cp5 = new ControlP5(this); 
   checkDuplicateSpecs(); 
-  listFont = createFont("Noto Sans Condensed Bold", 14);
-  buttonFont = createFont("Noto Sans Bold", 18);
+  gui.listFont = createFont("Noto Sans Condensed Bold", 14);
+  gui.buttonFont = createFont("Noto Sans Bold", 18);
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
   gui.custom();
@@ -51,10 +49,11 @@ void setup() {
 
 //Runs constantly
 void draw() {
+  cameras = (int) gui.cameraSlider.getValue();
   gui.checkResetButtonPressed();
   //Phone list/menu is always open
-  if (!phoneList.isOpen()) {
-    phoneList.open();
+  if (!gui.phoneList.isOpen()) {
+    gui.phoneList.open();
   }
 
   loadCSVs();
@@ -74,8 +73,8 @@ void draw() {
     }
 
     //If the label of the phone list doesn't match with to bottom label, then match both labels
-    if (!search.equals(phoneList.getLabel())) { 
-      phoneLabel.setText(phoneList.getLabel());
+    if (!search.equals(gui.phoneList.getLabel())) { 
+      phoneLabel.setText(gui.phoneList.getLabel());
     }
 
     /*If the choices match any specs in the specs database or search string matches 
@@ -83,7 +82,7 @@ void draw() {
     else if (foundMatch || search.equals(phoneNames[i])) {
 
       //Loads image, three links, and phone search string based on phone name
-      phoneList.setLabel(phoneNames[i]);
+      gui.phoneList.setLabel(phoneNames[i]);
       phoneLabel.setText(phoneNames[i]);
       img = loadImage("images/" + phoneNames[i] + ".jpg");
       image(img, 560, 10);

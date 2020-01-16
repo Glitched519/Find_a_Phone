@@ -1,25 +1,41 @@
 class CustomGUI {
 
   Button walmartButton, eBayButton, amazonButton, resetButton;
+  Textlabel l;
+  Slider cameraSlider;
+
+  DropdownList phoneList;
+  PFont listFont, buttonFont;
 
   void custom() {
     initPhoneList();
     initButtons();
+    initSlider();
   }
 
   void checkResetButtonPressed() {
     if (resetButton.isMousePressed()) {
-      gui.reset();
+      reset();
     }
+  }
+
+  void initSlider() {
+    cameraSlider = cp5.addSlider("");
+    cameraSlider.setRange(1, 5);
+    cameraSlider.setDecimalPrecision(0);
+    cameraSlider.setNumberOfTickMarks(5);
+    cameraSlider.setPosition(180, 420);
+    cameraSlider.setSize(160, 20);
+    cameraSlider.setFont(listFont);
   }
 
   void enableShoppingButtons() {
     amazonButton.setLock(false);
     eBayButton.setLock(false);
     walmartButton.setLock(false);
-    gui.shoppingButtonClicked(amazonButton, amazonURL);
-    gui.shoppingButtonClicked(eBayButton, eBayURL);
-    gui.shoppingButtonClicked(walmartButton, walmartURL);
+    shoppingButtonClicked(amazonButton, amazonURL);
+    shoppingButtonClicked(eBayButton, eBayURL);
+    shoppingButtonClicked(walmartButton, walmartURL);
   }
 
   void initPhoneList() {
