@@ -24,38 +24,45 @@ String amazonURL, eBayURL, walmartURL;
 PImage img;
 String search;
 String[] specComponents;
+Button walmartButton, eBayButton, amazonButton, resetButton;
 
-//Better menu than G4P's drop menu
+//Better menu than G4P's dropdown menu
 ControlP5 cp5;
-PFont font;
+PFont listFont, buttonFont;
 DropdownList phoneList;
 
 //Create instance of phone
 Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
   screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
   screenResolution, minimumStorage, waterResistance);
+CustomGUI gui = new CustomGUI();
 
 //Prepares window on start
 void setup() {
   background(0);
   size(730, 550);
   loadCSVs(); 
+  cp5 = new ControlP5(this);
   createGUI();
   checkDuplicateSpecs(); 
-  cp5 = new ControlP5(this);
-  font = createFont("Arial", 12);
+  listFont = createFont("Noto Sans Condensed Bold", 14);
+  buttonFont = createFont("Noto Sans Bold", 18);
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
-  initPhoneList();
+  gui.initPhoneList();
+  gui.initButtons();
 }
 
 //Runs constantly
 void draw() {
+  if (resetButton.isMousePressed()) {
+    gui.reset();
+  }
   //Phone list/menu is always open
   if (!phoneList.isOpen()) {
     phoneList.open();
   }
-  
+
   loadCSVs();
   search = phoneLabel.getText();
 
@@ -76,11 +83,11 @@ void draw() {
     if (!search.equals(phoneList.getLabel())) { 
       phoneLabel.setText(phoneList.getLabel());
     }
-    
+
     /*If the choices match any specs in the specs database or search string matches 
      with any phone name.*/
     else if (sameLines || search.equals(phoneNames[i])) {
-      
+
       //Loads image, three links, and phone search string based on phone name
       phoneList.setLabel(phoneNames[i]);
       phoneLabel.setText(phoneNames[i]);
@@ -90,9 +97,12 @@ void draw() {
         + phoneNames[i].replace(" ", "+") + ".TRS0&_nkw=" + phoneNames[i].replace(" ", "+") + "&_sacat=0";
       amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
       walmartURL = "https://www.walmart.com/search/?query=" + phoneNames[i].replace(" ", "%20");
-      amazonButton.setEnabled(true);
-      eBayButton.setEnabled(true);
-      walmartButton.setEnabled(true);
+      amazonButton.setLock(false);
+      eBayButton.setLock(false);
+      walmartButton.setLock(false);
+      gui.shoppingButtonClicked(amazonButton, amazonURL);
+      gui.shoppingButtonClicked(eBayButton, eBayURL);
+      gui.shoppingButtonClicked(walmartButton, walmartURL);    
 
       //Sets the spec values to each of the array components loaded
       specComponents = splitTokens(specs[i], ",");
@@ -124,57 +134,6 @@ void draw() {
       minimumStorage + "," + waterResistance);
     formInput.close();
   }
-}
-
-void reset() {
-  cp5 = new ControlP5(this);
-  initPhoneList();
-  
-  //Resets the specs values back to their defaults
-  osChosen = "iOS";
-  headphoneJack = "no";
-  displayDesign = "bezel";
-  screenPanel = "LCD";
-  screenSize = 1;
-  cameras = 1;
-  performance = "powerful";
-  batterySize = 1;
-  expandableMemory = "no";
-  fluidDisplay = "no";
-  screenResolution = 1;
-  minimumStorage = 256;
-  waterResistance = "no";
-  
-  //Resets the choices selected back to their default values
-  img = loadImage("images/unknown.jpg");
-  image(img, 560, 10);
-  iOS.setSelected(true);
-  wantJack.setSelected(false);
-  bezel.setSelected(true);
-  LCD.setSelected(true);
-  size1.setSelected(true);
-  cameraSlider.setValue(1);
-  powerful.setSelected(true);
-  HUGE.setSelected(true);
-  wantExpandableMemory.setSelected(false);
-  wantFluid.setSelected(false);
-  p1440.setSelected(true);
-  GB256.setSelected(true);
-  wantWaterResistance.setSelected(false);
-  amazonButton.setEnabled(false);
-  eBayButton.setEnabled(false);
-  walmartButton.setEnabled(false);
-}
-
-void initPhoneList() {
-  phoneList = cp5.addDropdownList("Find a phone from the list");
-  phoneList.setPosition(350, 10);
-  phoneList.setSize(200, 530);
-  phoneList.setFont(font);
-  phoneList.setBarHeight(25);
-  phoneList.setItemHeight(20);
-  phoneList.addItems(phoneNames);
-  phoneList.removeItem(phoneNames[0]);
 }
 
 //loads the "strings" from the database files
