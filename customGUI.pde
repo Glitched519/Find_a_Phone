@@ -1,16 +1,21 @@
 class CustomGUI {
 
   Button walmartButton, eBayButton, amazonButton, resetButton;
-  Textlabel l;
+  /*Using disabled buttons to help render the label properly with background.
+  Textlabel caused rendering issues and had no background. */
+  Button mobileOSLabel, performanceLabel, displayDesignLabel, batterySizeLabel, screenSizeLabel, 
+    screenPanelLabel, screenResolutionLabel, minimumStorageLabel, specialFeaturesLabel, 
+    rearCamerasLabel, phoneLabel, buyThePhoneFromLabel, sourceLabel;
   Slider cameraSlider;
 
   DropdownList phoneList;
-  PFont listFont, buttonFont;
+  PFont listFont, buttonFont, labelFont;
 
   void custom() {
     initPhoneList();
     initButtons();
     initSlider();
+    initLabels();
   }
 
   void checkResetButtonPressed() {
@@ -19,14 +24,76 @@ class CustomGUI {
     }
   }
 
+  void initLabels() {
+    mobileOSLabel = cp5.addButton("Mobile OS")
+      .setPosition(10, 10)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);   
+    performanceLabel = cp5.addButton("Performance")
+      .setPosition(10, 80)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    displayDesignLabel = cp5.addButton("Display Design")
+      .setPosition(10, 170)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    batterySizeLabel = cp5.addButton("Battery Size (mAh)")
+      .setPosition(10, 280)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    screenSizeLabel = cp5.addButton("Screen Size (inches)")
+      .setPosition(10, 390)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    screenPanelLabel = cp5.addButton("Screen Panel")
+      .setPosition(180, 10)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);   
+    screenResolutionLabel = cp5.addButton("Screen Resolution")
+      .setPosition(180, 80)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    minimumStorageLabel = cp5.addButton("Minimum Storage")
+      .setPosition(180, 170)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    specialFeaturesLabel = cp5.addButton("Special Features?")
+      .setPosition(180, 280)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+    rearCamerasLabel = cp5.addButton("# of Rear Cameras")
+      .setPosition(180, 390)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+   buyThePhoneFromLabel = cp5.addButton("Buy the phone from: ")
+      .setPosition(560, 340)
+      .setSize(160, 20)
+      .setFont(labelFont)
+      .setLock(true);
+  sourceLabel = cp5.addButton("All phone images are provided by and sourced from GSMArena.com.")
+      .setPosition(550, height-15)
+      .setColorBackground(color(0))
+      .setLock(true);
+  }
+
   void initSlider() {
-    cameraSlider = cp5.addSlider("");
-    cameraSlider.setRange(1, 5);
-    cameraSlider.setDecimalPrecision(0);
-    cameraSlider.setNumberOfTickMarks(5);
-    cameraSlider.setPosition(180, 420);
-    cameraSlider.setSize(160, 20);
-    cameraSlider.setFont(listFont);
+    cameraSlider = cp5.addSlider("")
+      .setRange(1, 5)
+      .setDecimalPrecision(0)
+      .setNumberOfTickMarks(5)
+      .setPosition(180, 420)
+      .setSize(160, 20)
+      .setFont(listFont);
   }
 
   void enableShoppingButtons() {
@@ -39,45 +106,45 @@ class CustomGUI {
   }
 
   void initPhoneList() {
-    phoneList = cp5.addDropdownList("Find a phone from the list");
-    phoneList.setPosition(350, 10);
-    phoneList.setSize(200, 530);
-    phoneList.setFont(listFont);
-    phoneList.setBarHeight(25);
-    phoneList.setItemHeight(20);
-    phoneList.addItems(phoneNames);
-    phoneList.removeItem(phoneNames[0]);
+    phoneList = cp5.addDropdownList("Find a phone from the list")
+      .setPosition(350, 10)
+      .setSize(200, 530)
+      .setFont(listFont)
+      .setBarHeight(25)
+      .setItemHeight(20)
+      .addItems(phoneNames)
+      .removeItem(phoneNames[0]);
   }
 
   void initButtons() {
-    resetButton = cp5.addButton("Reset");
-    resetButton.setPosition(230, 520);
-    resetButton.setSize(110, 25);
-    resetButton.setFont(buttonFont);
-    resetButton.setColorForeground(color(255, 0, 0));
-    resetButton.setColorBackground(color(204, 0, 0));
-    resetButton.setColorActive(color(179, 0, 0));
-    walmartButton = cp5.addButton("Walmart.com"); 
-    walmartButton.setFont(buttonFont);
-    walmartButton.setPosition(560, 370);
-    walmartButton.setSize(160, 50);
-    walmartButton.setColorForeground(color(0, 77, 230));
-    walmartButton.setColorBackground(color(66, 135, 245));
-    walmartButton.setLock(true);
-    amazonButton = cp5.addButton("Amazon.com"); 
-    amazonButton.setFont(buttonFont);
-    amazonButton.setPosition(560, 430);
-    amazonButton.setSize(160, 50);
-    amazonButton.setColorForeground(color(0, 230, 0));
-    amazonButton.setColorBackground(color(179, 179, 0));
-    amazonButton.setLock(true);  
-    eBayButton = cp5.addButton("eBay.com"); 
-    eBayButton.setFont(buttonFont);
-    eBayButton.setPosition(560, 490);
-    eBayButton.setSize(160, 50);
-    eBayButton.setColorForeground(color(230, 0, 0));
-    eBayButton.setColorBackground(color(255, 51, 51));
-    eBayButton.setLock(true);
+    resetButton = cp5.addButton("Reset")
+      .setPosition(230, 520)
+      .setSize(110, 25)
+      .setFont(buttonFont)
+      .setColorForeground(color(255, 0, 0))
+      .setColorBackground(color(204, 0, 0))
+      .setColorActive(color(179, 0, 0));
+    walmartButton = cp5.addButton("Walmart.com")
+      .setFont(buttonFont)
+      .setPosition(560, 370)
+      .setSize(160, 50)
+      .setColorForeground(color(0, 77, 230))
+      .setColorBackground(color(66, 135, 245))
+      .setLock(true);
+    amazonButton = cp5.addButton("Amazon.com")
+      .setFont(buttonFont)
+      .setPosition(560, 430)
+      .setSize(160, 50)
+      .setColorForeground(color(0, 230, 0))
+      .setColorBackground(color(179, 179, 0))
+      .setLock(true);  
+    eBayButton = cp5.addButton("eBay.com")
+      .setFont(buttonFont)
+      .setPosition(560, 490)
+      .setSize(160, 50)
+      .setColorForeground(color(230, 0, 0))
+      .setColorBackground(color(255, 51, 51))
+      .setLock(true);
   }
 
   void shoppingButtonClicked(Button source, String URL) { 

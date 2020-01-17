@@ -35,15 +35,16 @@ CustomGUI gui = new CustomGUI();
 //Prepares window on start
 void setup() {
   background(0);
-  size(730, 550);
+  size(730, 560);
   loadCSVs(); 
   cp5 = new ControlP5(this); 
   checkDuplicateSpecs(); 
   gui.listFont = createFont("Noto Sans Condensed Bold", 14);
+  gui.labelFont = createFont("Arial", 13);
   gui.buttonFont = createFont("Noto Sans Bold", 18);
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
-  gui.custom();
+  gui.custom();  
   createGUI();
 }
 
