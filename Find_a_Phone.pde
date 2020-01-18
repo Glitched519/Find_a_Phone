@@ -25,9 +25,9 @@ void setup() {
   checkDuplicateSpecs(); 
 
   //Sets fonts for ControlP5 elements
-  gui.listFont = createFont("Noto Sans Condensed Bold", 14);
+  gui.listFont = createFont("Tahoma", 13);
   gui.labelFont = createFont("Arial", 13);
-  gui.buttonFont = createFont("Noto Sans Bold", 18);
+  gui.buttonFont = createFont("Tahoma Bold", 18);
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
   gui.custom();  //Creates ControlP5 custom GUI
