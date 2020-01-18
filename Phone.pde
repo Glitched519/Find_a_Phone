@@ -13,6 +13,7 @@ class Phone {
   int minimumStorage;
   String waterResistance;
 
+  //Phone constructor
   Phone(String os, String hj, String dd, String sp, int ss, int c, String p, int bs, 
     String em, String fd, int sr, int ms, String wr) {
     this.osChosen = os;

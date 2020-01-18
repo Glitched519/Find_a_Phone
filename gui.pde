@@ -236,7 +236,7 @@ public void createGUI(){
   batterySizeGroup = new GToggleGroup();
   small = new GOption(this, 10, 360, 160, 20);
   small.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  small.setText("Small (≤ 3000");
+  small.setText("Small (≤ 3000)");
   small.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   small.setOpaque(true);
   small.addEventHandler(this, "smallChosen");
@@ -275,7 +275,7 @@ public void createGUI(){
   size5.setOpaque(true);
   size5.addEventHandler(this, "size5Chosen");
   size4 = new GOption(this, 10, 470, 160, 20);
-  size4.setIconAlign(GAlign.LEFT, GAlign.TOP);
+  size4.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
   size4.setText("6.4+");
   size4.setOpaque(true);
   size4.addEventHandler(this, "size4Chosen");

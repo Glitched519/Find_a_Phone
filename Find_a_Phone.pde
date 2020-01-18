@@ -1,3 +1,4 @@
+//Both G4P and ControlP5 elements will be used for the GUI of this application
 import g4p_controls.*;
 import controlP5.*;
 
@@ -23,7 +24,7 @@ String[] specs, form, phoneNames, specComponents;
 String amazonURL, eBayURL, walmartURL, search;
 PImage img;
 
-//Initializes controls for ControlP5's GUI (batter than G4P's)
+//Initializes controls for ControlP5's GUI (better than G4P's)
 ControlP5 cp5;
 
 //Create instances of phone and custom GUI
@@ -37,15 +38,17 @@ void setup() {
   background(0);
   size(730, 560);
   loadCSVs(); 
-  cp5 = new ControlP5(this); 
+  cp5 = new ControlP5(this); //Some elements are controlled using ControlP5
   checkDuplicateSpecs(); 
+
+  //Sets fonts for ControlP5 elements
   gui.listFont = createFont("Noto Sans Condensed Bold", 14);
   gui.labelFont = createFont("Arial", 13);
   gui.buttonFont = createFont("Noto Sans Bold", 18);
   img = loadImage("images/unknown.jpg");
   image(img, 560, 10);
-  gui.custom();  
-  createGUI();
+  gui.custom();  //Creates ControlP5 custom GUI
+  createGUI();  //Creates G4P GUI
 }
 
 //Runs constantly
@@ -125,7 +128,7 @@ void draw() {
   }
 }
 
-//loads the "strings" from the database files
+//Loads the "strings" from the database files
 void loadCSVs() {
   specs = loadStrings("CSV/PhoneSpecs.csv");
   form = loadStrings("CSV/preferences.csv");

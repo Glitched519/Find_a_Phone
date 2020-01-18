@@ -1,16 +1,18 @@
 class CustomGUI {
 
   Button walmartButton, eBayButton, amazonButton, resetButton;
+  
   /*Using disabled buttons to help render the label properly with background.
-  Textlabel caused rendering issues and had no background. */
+   Textlabel caused rendering issues and had no background. */
   Button mobileOSLabel, performanceLabel, displayDesignLabel, batterySizeLabel, screenSizeLabel, 
     screenPanelLabel, screenResolutionLabel, minimumStorageLabel, specialFeaturesLabel, 
     rearCamerasLabel, phoneLabel, buyThePhoneFromLabel, sourceLabel;
-  Slider cameraSlider;
+  Slider cameraSlider;  
 
   DropdownList phoneList;
   PFont listFont, buttonFont, labelFont;
 
+  //Called in setup()
   void custom() {
     initPhoneList();
     initButtons();
@@ -18,84 +20,110 @@ class CustomGUI {
     initLabels();
   }
 
+  //If the resetButton is pressed, then reset the GUI.
   void checkResetButtonPressed() {
     if (resetButton.isMousePressed()) {
       reset();
     }
   }
 
+  //Setup all labels and aesthetic features as disabled buttons
   void initLabels() {
     mobileOSLabel = cp5.addButton("Mobile OS")
       .setPosition(10, 10)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(255, 128, 128))
       .setLock(true);   
     performanceLabel = cp5.addButton("Performance")
       .setPosition(10, 80)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(255, 179, 102))
       .setLock(true);
     displayDesignLabel = cp5.addButton("Display Design")
       .setPosition(10, 170)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(128, 255, 128))
       .setLock(true);
     batterySizeLabel = cp5.addButton("Battery Size (mAh)")
       .setPosition(10, 280)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(140, 217, 179))
       .setLock(true);
     screenSizeLabel = cp5.addButton("Screen Size (inches)")
       .setPosition(10, 390)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(102, 153, 255))
       .setLock(true);
     screenPanelLabel = cp5.addButton("Screen Panel")
       .setPosition(180, 10)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(255, 128, 128))
       .setLock(true);   
     screenResolutionLabel = cp5.addButton("Screen Resolution")
       .setPosition(180, 80)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(255, 179, 102))
       .setLock(true);
-    minimumStorageLabel = cp5.addButton("Minimum Storage")
+    minimumStorageLabel = cp5.addButton("Minimum Storage (GB)")
       .setPosition(180, 170)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(128, 255, 128))
       .setLock(true);
     specialFeaturesLabel = cp5.addButton("Special Features?")
       .setPosition(180, 280)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(140, 217, 179))
       .setLock(true);
     rearCamerasLabel = cp5.addButton("# of Rear Cameras")
       .setPosition(180, 390)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(102, 153, 255))
       .setLock(true);
-   buyThePhoneFromLabel = cp5.addButton("Buy the phone from: ")
+    buyThePhoneFromLabel = cp5.addButton("Buy the phone from: ")
       .setPosition(560, 340)
       .setSize(160, 20)
       .setFont(labelFont)
+      .setColorCaptionLabel(color(0))
+      .setColorBackground(color(255, 102, 255))
       .setLock(true);
-  sourceLabel = cp5.addButton("All phone images are provided by and sourced from GSMArena.com.")
+    sourceLabel = cp5.addButton("All phone images are provided by and sourced from GSMArena.com.")
       .setPosition(550, height-15)
       .setColorBackground(color(0))
       .setLock(true);
   }
 
+  //Setup features for cameraSlider
   void initSlider() {
     cameraSlider = cp5.addSlider("")
       .setRange(1, 5)
       .setDecimalPrecision(0)
       .setNumberOfTickMarks(5)
-      .setPosition(180, 420)
-      .setSize(160, 20)
+      .setPosition(180, 410)
+      .setSize(160, 25)
       .setFont(listFont);
   }
 
+  //Setup Amazon, eBay, and Walmart shopping buttons
   void enableShoppingButtons() {
     amazonButton.setLock(false);
     eBayButton.setLock(false);
@@ -105,6 +133,7 @@ class CustomGUI {
     shoppingButtonClicked(walmartButton, walmartURL);
   }
 
+  //Setup phone list features
   void initPhoneList() {
     phoneList = cp5.addDropdownList("Find a phone from the list")
       .setPosition(350, 10)
@@ -116,6 +145,7 @@ class CustomGUI {
       .removeItem(phoneNames[0]);
   }
 
+  ///Setup shopping and reset buttons
   void initButtons() {
     resetButton = cp5.addButton("Reset")
       .setPosition(230, 520)
@@ -147,6 +177,7 @@ class CustomGUI {
       .setLock(true);
   }
 
+  //Redirect user to website with phone in search bar
   void shoppingButtonClicked(Button source, String URL) { 
     if (source.isMousePressed()) {
       gui.initButtons();
@@ -154,10 +185,11 @@ class CustomGUI {
     }
   } 
 
+  //Reset GUI and values
   void reset() {
     gui.initPhoneList();
 
-    //Resets the specs values back to their defaults
+    //Reset the specs values back to their defaults
     osChosen = "iOS";
     headphoneJack = "no";
     displayDesign = "bezel";
@@ -172,7 +204,7 @@ class CustomGUI {
     minimumStorage = 256;
     waterResistance = "no";
 
-    //Resets the choices selected back to their default values
+    //Reset the choices selected back to their default values
     img = loadImage("images/unknown.jpg");
     image(img, 560, 10);
     iOS.setSelected(true);
