@@ -15,142 +15,142 @@
  */
 
 public void iOSSelected(GOption source, GEvent event) { //_CODE_:iOS:808869:
-  osChosen = "iOS";
+  phone.osChosen = "iOS";
 } //_CODE_:iOS:808869:
 
 public void AndroidSelected(GOption source, GEvent event) { //_CODE_:Android:797238:
-  osChosen = "Android";
+  phone.osChosen = "Android";
 } //_CODE_:Android:797238:
 
 public void budgetChosen(GOption source, GEvent event) { //_CODE_:budget:407968:
-  performance = "budget";
+  phone.performance = "budget";
 } //_CODE_:budget:407968:
 
 public void midrangeChosen(GOption source, GEvent event) { //_CODE_:midrange:448949:
-  performance = "midrange";
+  phone.performance = "midrange";
 } //_CODE_:midrange:448949:
 
 public void powerfulChosen(GOption source, GEvent event) { //_CODE_:powerful:943323:
-  performance = "powerful";
+  phone.performance = "powerful";
 } //_CODE_:powerful:943323:
 
 public void notchChosen(GOption source, GEvent event) { //_CODE_:notch:322663:
-  displayDesign = "notch";
+  phone.displayDesign = "notch";
 } //_CODE_:notch:322663:
 
 public void holeChosen(GOption source, GEvent event) { //_CODE_:hole:493186:
-  displayDesign = "hole";
+  phone.displayDesign = "hole";
 } //_CODE_:hole:493186:
 
 public void bezelFreeChosen(GOption source, GEvent event) { //_CODE_:bezelFree:538634:
-  displayDesign = "bezelFree";
+  phone.displayDesign = "bezelFree";
 } //_CODE_:bezelFree:538634:
 
 public void bezelChosen(GOption source, GEvent event) { //_CODE_:bezel:651128:
-  displayDesign = "bezel";
+  phone.displayDesign = "bezel";
 } //_CODE_:bezel:651128:
 
 public void smallChosen(GOption source, GEvent event) { //_CODE_:small:246450:
-  batterySize = 4;
+  phone.batterySize = 4;
 } //_CODE_:small:246450:
 
 public void regularChosen(GOption source, GEvent event) { //_CODE_:regular:578137:
-  batterySize = 3;
+  phone.batterySize = 3;
 } //_CODE_:regular:578137:
 
 public void largeChosen(GOption source, GEvent event) { //_CODE_:large:671506:
-  batterySize = 2;
+  phone.batterySize = 2;
 } //_CODE_:large:671506:
 
 public void HUGEChosen(GOption source, GEvent event) { //_CODE_:HUGE:406580:
-  batterySize = 1;
+  phone.batterySize = 1;
 } //_CODE_:HUGE:406580:
 
 public void size1Chosen(GOption source, GEvent event) { //_CODE_:size1:908235:
-  screenSize = 1;
+  phone.screenSize = 1;
 } //_CODE_:size1:908235:
 
 public void size5Chosen(GOption source, GEvent event) { //_CODE_:size5:681821:
-  screenSize = 5;
+  phone.screenSize = 5;
 } //_CODE_:size5:681821:
 
 public void size4Chosen(GOption source, GEvent event) { //_CODE_:size4:686286:
-  screenSize = 4;
+  phone.screenSize = 4;
 } //_CODE_:size4:686286:
 
 public void size3Chosen(GOption source, GEvent event) { //_CODE_:size3:316694:
-  screenSize = 3;
+  phone.screenSize = 3;
 } //_CODE_:size3:316694:
 
 public void size2Chosen(GOption source, GEvent event) { //_CODE_:size2:582256:
-  screenSize = 2;
+  phone.screenSize = 2;
 } //_CODE_:size2:582256:
 
 public void LCDChosen(GOption source, GEvent event) { //_CODE_:LCD:775096:
-  screenPanel = "LCD";
+  phone.screenPanel = "LCD";
 } //_CODE_:LCD:775096:
 
 public void OLEDChosen(GOption source, GEvent event) { //_CODE_:OLED:445417:
-  screenPanel = "OLED";
+  phone.screenPanel = "OLED";
 } //_CODE_:OLED:445417:
 
 public void p720Chosen(GOption source, GEvent event) { //_CODE_:p720:695949:
-  screenResolution = 3;
+  phone.screenResolution = 3;
 } //_CODE_:p720:695949:
 
 public void p1080Chosen(GOption source, GEvent event) { //_CODE_:p1080:760303:
-  screenResolution = 2;
+  phone.screenResolution = 2;
 } //_CODE_:p1080:760303:
 
 public void p1440Chosen(GOption source, GEvent event) { //_CODE_:p1440:460116:
-  screenResolution = 1;
+  phone.screenResolution = 1;
 } //_CODE_:p1440:460116:
 
 public void GB32Chosen(GOption source, GEvent event) { //_CODE_:GB32:596710:
-  minimumStorage = 32;
+  phone.minimumStorage = 32;
 } //_CODE_:GB32:596710:
 
 public void GB64Chosen(GOption source, GEvent event) { //_CODE_:GB64:284979:
-  minimumStorage = 64;
+  phone.minimumStorage = 64;
 } //_CODE_:GB64:284979:
 
 public void GB128Chosen(GOption source, GEvent event) { //_CODE_:GB128:314119:
-  minimumStorage = 128;
+  phone.minimumStorage = 128;
 } //_CODE_:GB128:314119:
 
 public void GB256Chosen(GOption source, GEvent event) { //_CODE_:GB256:830569:
-  minimumStorage =256;
+  phone.minimumStorage =256;
 } //_CODE_:GB256:830569:
 
 public void wantJackTicked(GCheckbox source, GEvent event) { //_CODE_:wantJack:544229:
   if (source.isSelected()) {
-    headphoneJack = "yes";
+    phone.headphoneJack = "yes";
   } else {
-    headphoneJack = "no";
+    phone.headphoneJack = "no";
   }
 } //_CODE_:wantJack:544229:
 
 public void wantExpandableMemoryTicked(GCheckbox source, GEvent event) { //_CODE_:wantExpandableMemory:223524:
   if (source.isSelected()) {
-    expandableMemory = "yes";
+    phone.expandableMemory = "yes";
   } else {
-    expandableMemory = "no";
+    phone.expandableMemory = "no";
   }
 } //_CODE_:wantExpandableMemory:223524:
 
 public void wantFluidTicked(GCheckbox source, GEvent event) { //_CODE_:wantFluid:480090:
   if (source.isSelected()) {
-    fluidDisplay = "yes";
+    phone.fluidDisplay = "yes";
   } else {
-    fluidDisplay = "no";
+    phone.fluidDisplay = "no";
   }
 } //_CODE_:wantFluid:480090:
 
 public void wantWaterResistanceTicked(GCheckbox source, GEvent event) { //_CODE_:wantWaterResistance:514821:
   if (source.isSelected()) {
-    waterResistance = "yes";
+    phone.waterResistance = "yes";
   } else {
-    waterResistance = "no";
+    phone.waterResistance = "no";
   }
 } //_CODE_:wantWaterResistance:514821:
 
@@ -379,7 +379,7 @@ public void createGUI(){
   wantExpandableMemory.addEventHandler(this, "wantExpandableMemoryTicked");
   wantFluid = new GCheckbox(this, 180, 320, 160, 20);
   wantFluid.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  wantFluid.setText("Fluid Display");
+  wantFluid.setText("90/120 Hz Display");
   wantFluid.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   wantFluid.setOpaque(true);
   wantFluid.addEventHandler(this, "wantFluidTicked");

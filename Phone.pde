@@ -1,5 +1,20 @@
 class Phone {
 
+  //The 13 specs
+  String osChosen = "iOS";
+  String headphoneJack = "no";
+  String displayDesign = "bezel";
+  String screenPanel = "OLED";
+  int screenSize = 1;
+  int cameras = 1;
+  String performance = "powerful";
+  int batterySize = 1;
+  String expandableMemory = "no";
+  String fluidDisplay = "no";
+  int screenResolution = 1;
+  int minimumStorage = 256;
+  String waterResistance = "no";
+
   //Sets the choices based on the chosen phone's specs
   void matchChoicesWithSpecs() {
 

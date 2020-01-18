@@ -1,7 +1,7 @@
 class CustomGUI {
 
   Button walmartButton, eBayButton, amazonButton, resetButton;
-  
+
   /*Using disabled buttons to help render the label properly with background.
    Textlabel caused rendering issues and had no background. */
   Button mobileOSLabel, performanceLabel, displayDesignLabel, batterySizeLabel, screenSizeLabel, 
@@ -190,19 +190,19 @@ class CustomGUI {
     gui.initPhoneList();
 
     //Reset the specs values back to their defaults
-    osChosen = "iOS";
-    headphoneJack = "no";
-    displayDesign = "bezel";
-    screenPanel = "OLED";
-    screenSize = 1;
-    cameras = 1;
-    performance = "powerful";
-    batterySize = 1;
-    expandableMemory = "no";
-    fluidDisplay = "no";
-    screenResolution = 1;
-    minimumStorage = 256;
-    waterResistance = "no";
+    phone.osChosen = "iOS";
+    phone.headphoneJack = "no";
+    phone.displayDesign = "bezel";
+    phone.screenPanel = "OLED";
+    phone.screenSize = 1;
+    phone.cameras = 1;
+    phone.performance = "powerful";
+    phone.batterySize = 1;
+    phone.expandableMemory = "no";
+    phone.fluidDisplay = "no";
+    phone.screenResolution = 1;
+    phone.minimumStorage = 256;
+    phone.waterResistance = "no";
 
     //Reset the choices selected back to their default values
     img = loadImage("images/unknown.jpg");

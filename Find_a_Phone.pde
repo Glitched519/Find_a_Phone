@@ -2,21 +2,6 @@
 import g4p_controls.*;
 import controlP5.*;
 
-//The 13 specs
-String osChosen = "iOS";
-String headphoneJack = "no";
-String displayDesign = "bezel";
-String screenPanel = "OLED";
-int screenSize = 1;
-int cameras = 1;
-String performance = "powerful";
-int batterySize = 1;
-String expandableMemory = "no";
-String fluidDisplay = "no";
-int screenResolution = 1;
-int minimumStorage = 256;
-String waterResistance = "no";
-
 //Meta components
 PrintWriter formInput;
 boolean foundMatch = false;
@@ -51,7 +36,7 @@ void setup() {
 
 //Runs constantly
 void draw() {
-  cameras = (int) gui.cameraSlider.getValue();
+  phone.cameras = (int) gui.cameraSlider.getValue();
   gui.checkResetButtonPressed();
   //Phone list/menu is always open
   if (!gui.phoneList.isOpen()) {
@@ -96,32 +81,32 @@ void draw() {
 
       //Sets the spec values to each of the array components loaded
       specComponents = splitTokens(specs[i], ",");
-      osChosen = specComponents[0];
-      headphoneJack = specComponents[1];
-      displayDesign = specComponents[2];
-      screenPanel = specComponents[3];
-      String scrs = str(screenSize);
+      phone.osChosen = specComponents[0];
+      phone.headphoneJack = specComponents[1];
+      phone.displayDesign = specComponents[2];
+      phone.screenPanel = specComponents[3];
+      String scrs = str(phone.screenSize);
       scrs = specComponents[4];
-      String cams = str(cameras);
+      String cams = str(phone.cameras);
       cams = specComponents[5];
-      performance = specComponents[6];
-      String batt = str(batterySize);
+      phone.performance = specComponents[6];
+      String batt = str(phone.batterySize);
       batt = specComponents[7];
-      expandableMemory = specComponents[8];
-      fluidDisplay = specComponents[9];  
-      String scrr = str(screenResolution);
+      phone.expandableMemory = specComponents[8];
+      phone.fluidDisplay = specComponents[9];  
+      String scrr = str(phone.screenResolution);
       scrr = specComponents[10];
-      String mins = str(minimumStorage);
+      String mins = str(phone.minimumStorage);
       mins = specComponents[11];
-      waterResistance = specComponents[12];
+      phone.waterResistance = specComponents[12];
       phone.matchChoicesWithSpecs();
     }
 
     //This is what the spec strings look like in form input and phone specs databases:
-    formInput.println(osChosen + "," + headphoneJack +"," + displayDesign + "," + 
-      screenPanel + "," + screenSize + "," + cameras + "," + performance + "," +
-      batterySize + "," + expandableMemory + "," + fluidDisplay + "," + screenResolution + "," +
-      minimumStorage + "," + waterResistance);
+    formInput.println(phone.osChosen + "," + phone.headphoneJack +"," + phone.displayDesign + ","
+      + phone.screenPanel + "," + phone.screenSize + "," + phone.cameras + "," + phone.performance 
+      + "," + phone.batterySize + "," + phone.expandableMemory + "," + phone.fluidDisplay + "," 
+      + phone.screenResolution + "," + phone.minimumStorage + "," + phone.waterResistance);
     formInput.close();
   }
 }
