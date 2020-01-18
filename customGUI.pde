@@ -193,7 +193,7 @@ class CustomGUI {
     osChosen = "iOS";
     headphoneJack = "no";
     displayDesign = "bezel";
-    screenPanel = "LCD";
+    screenPanel = "OLED";
     screenSize = 1;
     cameras = 1;
     performance = "powerful";
@@ -210,7 +210,7 @@ class CustomGUI {
     iOS.setSelected(true);
     wantJack.setSelected(false);
     bezel.setSelected(true);
-    LCD.setSelected(true);
+    OLED.setSelected(true);
     size1.setSelected(true);
     cameraSlider.setValue(1);
     powerful.setSelected(true);

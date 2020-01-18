@@ -6,7 +6,7 @@ import controlP5.*;
 String osChosen = "iOS";
 String headphoneJack = "no";
 String displayDesign = "bezel";
-String screenPanel = "LCD";
+String screenPanel = "OLED";
 int screenSize = 1;
 int cameras = 1;
 String performance = "powerful";
@@ -28,9 +28,7 @@ PImage img;
 ControlP5 cp5;
 
 //Create instances of phone and custom GUI
-Phone phone = new Phone(osChosen, headphoneJack, displayDesign, screenPanel, 
-  screenSize, cameras, performance, batterySize, expandableMemory, fluidDisplay, 
-  screenResolution, minimumStorage, waterResistance);
+Phone phone = new Phone();
 CustomGUI gui = new CustomGUI();
 
 //Prepares window on start
