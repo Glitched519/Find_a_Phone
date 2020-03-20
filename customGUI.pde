@@ -80,13 +80,13 @@ class CustomGUI {
       .setFont(labelFont)
       .setLock(true);
     buyThePhoneFromLabel = cp5.addButton("Buy the phone from: ")
-      .setPosition(560, 340)
+      .setPosition(width-170, height-225)
       .setSize(160, 20)
       .setFont(labelFont)
       .setColorBackground(color(230, 0, 230))
       .setLock(true);
     sourceLabel = cp5.addButton("All phone images are provided by and sourced from GSMArena.com.")
-      .setPosition(550, height-15)
+      .setPosition(width-175, height-15)
       .setColorBackground(color(0))
       .setLock(true);
   }
@@ -116,7 +116,7 @@ class CustomGUI {
   void initPhoneList() {
     phoneList = cp5.addDropdownList("Find a phone from the list")
       .setPosition(350, 10)
-      .setSize(200, 530)
+      .setSize(270, height-20)
       .setFont(listFont)
       .setBarHeight(25)
       .setItemHeight(20)
@@ -127,7 +127,7 @@ class CustomGUI {
   ///Setup shopping and reset buttons
   void initButtons() {
     resetButton = cp5.addButton("Reset")
-      .setPosition(230, 520)
+      .setPosition(230, height-35)
       .setSize(110, 25)
       .setFont(buttonFont)
       .setColorBackground(color(175, 0, 0))
@@ -135,19 +135,19 @@ class CustomGUI {
       .setColorActive(color(255, 0, 0));
     walmartButton = cp5.addButton("Walmart.com")
       .setFont(buttonFont)
-      .setPosition(560, 370)
+      .setPosition(width-170, height-195)
       .setSize(160, 50)
       .setColorForeground(color(0, 77, 230))
       .setLock(true);
     amazonButton = cp5.addButton("Amazon.com")
       .setFont(buttonFont)
-      .setPosition(560, 430)
+      .setPosition(width-170, height-135)
       .setSize(160, 50)
       .setColorForeground(color(0, 152, 0))
       .setLock(true);  
     eBayButton = cp5.addButton("eBay.com")
       .setFont(buttonFont)
-      .setPosition(560, 490)
+      .setPosition(width-170, height-75)
       .setSize(160, 50)
       .setColorForeground(color(230, 0, 0))
       .setLock(true);
@@ -182,7 +182,7 @@ class CustomGUI {
 
     //Reset the choices selected back to their default values
     img = loadImage("images/unknown.jpg");
-    image(img, 560, 10);
+    image(img, width-170, 10);
     iOS.setSelected(true);
     wantJack.setSelected(false);
     bezel.setSelected(true);

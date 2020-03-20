@@ -19,7 +19,7 @@ CustomGUI gui = new CustomGUI();
 //Prepares window on start
 void setup() {
   background(0);
-  size(730, 560);
+  size(800, 600);
   loadCSVs(); 
   cp5 = new ControlP5(this); //Some elements are controlled using ControlP5
   checkDuplicateSpecs(); 
@@ -29,7 +29,7 @@ void setup() {
   gui.labelFont = createFont("Arial", 13);
   gui.buttonFont = createFont("Tahoma Bold", 18);
   img = loadImage("images/unknown.jpg");
-  image(img, 560, 10);
+  image(img, width-170, 10);
   gui.custom();  //Creates ControlP5 custom GUI
   createGUI();  //Creates G4P GUI
 }
@@ -72,7 +72,7 @@ void draw() {
       gui.phoneList.setLabel(phoneNames[i]);
       phoneLabel.setText(phoneNames[i]);
       img = loadImage("images/" + phoneNames[i] + ".jpg");
-      image(img, 560, 10);
+      image(img, width-170, 10);
       eBayURL = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.X"
         + phoneNames[i].replace(" ", "+") + ".TRS0&_nkw=" + phoneNames[i].replace(" ", "+") + "&_sacat=0";
       amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
