@@ -71,8 +71,12 @@ void draw() {
       //Loads image, three links, and phone search string based on phone name
       gui.phoneList.setLabel(phoneNames[i]);
       phoneLabel.setText(phoneNames[i]);
+      try {
       img = loadImage("images/" + phoneNames[i] + ".jpg");
       image(img, width-170, 10);
+      } catch (NullPointerException e) {
+        println(phoneNames[i].toString() + " has no image attached.");
+      }
       eBayURL = "https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.X"
         + phoneNames[i].replace(" ", "+") + ".TRS0&_nkw=" + phoneNames[i].replace(" ", "+") + "&_sacat=0";
       amazonURL = "https://www.amazon.com/s?k=" + phoneNames[i].replace(" ", "+") + "&ref=nb_sb_noss_2";
