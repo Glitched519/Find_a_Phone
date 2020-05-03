@@ -1,4 +1,6 @@
 os,headphone jack,display design,screen panel,screen size,cameras,performance,battery size,expandable memory,fluid display,screen resolution,mimimum storage,water resistance
+iOS,no,bezel,LCD,1,1,powerful,4,no,no,3,64,yes
+Android,no,hole,OLED,4,3,powerful,2,no,yes,2,128,yes
 Android,yes,bezel-free,OLED,4,4,powerful,2,no,no,2,128,no
 Android,yes,notch,OLED,4,4,midrange,1,yes,no,2,64,no
 Android,no,hole,OLED,5,2,powerful,3,no,no,2,256,no
