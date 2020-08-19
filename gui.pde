@@ -309,7 +309,7 @@ public void createGUI(){
   LCD.addEventHandler(this, "LCDChosen");
   OLED = new GOption(this, 180, 30, 160, 20);
   OLED.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  OLED.setText("OLED");
+  OLED.setText("(AM)OLED");
   OLED.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   OLED.setOpaque(true);
   OLED.addEventHandler(this, "OLEDChosen");
@@ -384,7 +384,7 @@ public void createGUI(){
   wantExpandableMemory.addEventHandler(this, "wantExpandableMemoryTicked");
   wantFluid = new GCheckbox(this, 180, 320, 160, 20);
   wantFluid.setIconAlign(GAlign.LEFT, GAlign.MIDDLE);
-  wantFluid.setText("90/120 Hz Display");
+  wantFluid.setText(">60 Hz Display");
   wantFluid.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   wantFluid.setOpaque(true);
   wantFluid.addEventHandler(this, "wantFluidTicked");
@@ -394,7 +394,7 @@ public void createGUI(){
   wantWaterResistance.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   wantWaterResistance.setOpaque(true);
   wantWaterResistance.addEventHandler(this, "wantWaterResistanceTicked");
-  phoneLabel = new GLabel(this, 10, 565, 210, 25);
+  phoneLabel = new GLabel(this, 10, 1000, 210, 25);
   phoneLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   phoneLabel.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   phoneLabel.setOpaque(true);

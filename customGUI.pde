@@ -127,8 +127,8 @@ class CustomGUI {
   ///Setup shopping and reset buttons
   void initButtons() {
     resetButton = cp5.addButton("Reset")
-      .setPosition(230, height-35)
-      .setSize(110, 25)
+      .setPosition(180, height-70)
+      .setSize(160, 60)
       .setFont(buttonFont)
       .setColorBackground(color(175, 0, 0))
       .setColorForeground(color(215, 0, 0))

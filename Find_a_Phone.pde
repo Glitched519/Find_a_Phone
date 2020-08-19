@@ -19,7 +19,7 @@ CustomGUI gui = new CustomGUI();
 //Prepares window on start
 void setup() {
   background(0);
-  size(800, 600);
+  size(800, 520);
   loadCSVs(); 
   cp5 = new ControlP5(this); //Some elements are controlled using ControlP5
   checkDuplicateSpecs(); 
@@ -85,24 +85,6 @@ void draw() {
 
       //Sets the spec values to each of the array components loaded
       specComponents = splitTokens(specs[i], ",");
-      phone.osChosen = specComponents[0];
-      phone.headphoneJack = specComponents[1];
-      phone.displayDesign = specComponents[2];
-      phone.screenPanel = specComponents[3];
-      String scrs = str(phone.screenSize);
-      scrs = specComponents[4];
-      String cams = str(phone.cameras);
-      cams = specComponents[5];
-      phone.performance = specComponents[6];
-      String batt = str(phone.batterySize);
-      batt = specComponents[7];
-      phone.expandableMemory = specComponents[8];
-      phone.fluidDisplay = specComponents[9];  
-      String scrr = str(phone.screenResolution);
-      scrr = specComponents[10];
-      String mins = str(phone.minimumStorage);
-      mins = specComponents[11];
-      phone.waterResistance = specComponents[12];
       phone.matchChoicesWithSpecs();
     }
 
